@@ -26,7 +26,7 @@ After presenting the aforementioned data about each paper, answer to the followi
 5. Explain about the mission and the hardware
 
 
-#### Autonomous Human-Following Drone for Monitoring a Pedestrian from Constant Distance and Direction
+### Autonomous Human-Following Drone for Monitoring a Pedestrian from Constant Distance and Direction
 
 [Link to the Paper](https://drive.google.com/file/d/1p6NsPXuzjZfd4ESUXRtnRvGcS1R0wn1F/view?usp=sharing)
 
@@ -38,11 +38,11 @@ After presenting the aforementioned data about each paper, answer to the followi
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -55,7 +55,7 @@ Type a paragraph
 5.
 
 
-#### Multiple human tracking in drone image
+### Multiple human tracking in drone image
 
 [Link to the Paper](https://link.springer.com/article/10.1007/s11042-018-6141-z)
 
@@ -67,11 +67,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -105,7 +105,7 @@ Try to answer the folloeing questions in your review:
 
 Add the papers you find in the following:
 
-#### Depth Estimation Matters Most: Improving Per-Object Depth Estimation for Monocular 3D Detection and Tracking
+### Depth Estimation Matters Most: Improving Per-Object Depth Estimation for Monocular 3D Detection and Tracking
 
 [Link to the Paper](https://arxiv.org/pdf/2206.03666.pdf)
 
@@ -117,11 +117,11 @@ Add the papers you find in the following:
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -137,7 +137,7 @@ Type a paragraph
 
 
 
-#### Deep Learning for Real-Time 3D Multi-Object Detection, Localisation, and Tracking: Application to Smart Mobility
+### Deep Learning for Real-Time 3D Multi-Object Detection, Localisation, and Tracking: Application to Smart Mobility
 
 [Link to the Paper](https://www.mdpi.com/1424-8220/20/2/532)
 
@@ -149,11 +149,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -169,7 +169,7 @@ Type a paragraph
 
 
 
-#### Realtime Object-aware Monocular Depth Estimation in Onboard Systems
+### Realtime Object-aware Monocular Depth Estimation in Onboard Systems
 
 
 [Link to the Paper]()
@@ -182,11 +182,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -201,7 +201,7 @@ Type a paragraph
 6.
 
 
-#### Monocular 3D Multi-Object Tracking with an EKF Approach for Long-Term Stable Tracks
+### Monocular 3D Multi-Object Tracking with an EKF Approach for Long-Term Stable Tracks
 
 [Link to the Paper](https://drive.google.com/file/d/1rJ3PnFiJbZcrKbh4VGLAxsz_62sTOKMX/view?usp=sharing)
 
@@ -213,11 +213,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -232,7 +232,7 @@ Type a paragraph
 6.
 
 
-#### Real-time Monocular 3D People Localization and Tracking on Embedded System
+### Real-time Monocular 3D People Localization and Tracking on Embedded System
 
 [Link to the Paper](https://drive.google.com/file/d/1HKHRA1zM6AxbsaZgxfexzKUygNpzXZTo/view?usp=sharing)
 
@@ -244,11 +244,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -263,7 +263,7 @@ Type a paragraph
 6.
 
 
-#### Design of a Robust System Architecture for Tracking Vehicle on Highway Based on Monocular Camera
+### Design of a Robust System Architecture for Tracking Vehicle on Highway Based on Monocular Camera
 
 [Link to the Paper]()
 
@@ -275,11 +275,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
@@ -294,7 +294,7 @@ Type a paragraph
 6.
 
 
-#### YOLO MDE: Object Detection with Monocular Depth Estimation
+### YOLO MDE: Object Detection with Monocular Depth Estimation
 
 [Link to the Paper]()
 
@@ -306,11 +306,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-#####Review:
+####Review:
 
 Type a paragraph
 
-#####Answers:
+####Answers:
 
 1.
 
