@@ -38,11 +38,11 @@ After presenting the aforementioned data about each paper, answer to the followi
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -67,11 +67,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -117,11 +117,11 @@ Add the papers you find in the following:
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -149,11 +149,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -182,11 +182,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -213,11 +213,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -244,11 +244,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -275,11 +275,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
@@ -306,11 +306,11 @@ Type a paragraph
 
 **Journal or Conference:** ...
 
-####Review:
+#### Review:
 
 Type a paragraph
 
-####Answers:
+#### Answers:
 
 1.
 
