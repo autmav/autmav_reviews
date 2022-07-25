@@ -3,7 +3,7 @@ Each research field (which can be subjected to a specific research project) is s
 
 For the currently listed papers, there are empty fields. Based on the paper title, find the data and aomplete the information.
 
-*IPORTANT NOTE:* This document is created to summarize the research work! Try to give the explanation, *AS BRIEF AS POSSIBLE!*. Writing more than a half-page of paper for each article makes the resulting summary too long.
+*IMPORTANT NOTE:* This document is created to summarize the research work! Try to give the explanation, *AS BRIEF AS POSSIBLE!*. Writing more than a half-page of paper for each article makes the resulting summary too long.
 
 For each paper, first add the paper name as the heading. Add the following data:
 
