@@ -33,26 +33,33 @@ After presenting the aforementioned data about each paper, answer to the followi
 [Link to the Source Code]()
 
 **Authors:** 
+Hiroto Yamashita, Takashi Morimoto, Ikuhisa Mitsugami
 
 **Date:** 
+2021
 
 **Journal or Conference:** ...
+2021 IEEE 10th Global Conference on Consumer Electronics (GCCE)
 
 #### Review:
 
-Type a paragraph
+Distance evaluation: They evaluated the length between the Neck and Hip points in the captured image while walking and standing. the length was kept almost constant except for moments when the person started walking or stopped.
+Direction evaluation: The drone moved to the position behind the subject again, although there was some delay in the movement change of the subject.
 
 #### Answers:
 
-1.
+1. Not used.
 
-2.
+2. CNN-based 2D pose estimation by OpenPose and 3D pose estimation by “Martinez et al” method.
 
-3.
+3. The 3D joint points are estimated from 2D points with different skeleton model.
+PID controller is applied. input values are the longitudinal, movement speed, vertical movement speed, and rotational, angular speed.
+The human direction, Theta is calculated. This system controls the left-right movement speed of the drone so that theta approaches the target value.
 
-4.
+4.  It is a real-time system that estimate humans 2D and 3D pose and Control parameter are calculated from skeleton points.
+Experimental results confirmed that our system ran with reasonable response time and positional stability.
 
-5.
+5. An autonomous drone system that follows a pedestrian from a certain distance and direction for human video analysis without environmental constraints. +Tello drone +RGB camera
 
 
 ### Multiple human tracking in drone image
