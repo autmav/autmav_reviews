@@ -123,26 +123,25 @@ Add the papers you find in the following:
 **Date:**  8 Jun 2022
 
 **Journal or Conference:** ...
+IEEE
 
 #### Review:
 
-Type a paragraph
+1) They conducted a systematic analysis identifying that per-object depth estimation is a major performance bottleneck of current 3D monocular detection and tracking-by-detection methods. 2) They proposed a novel method that fuses pseudo-LiDAR and RGB information across the temporal domain to significantly enhance per-object depth estimation performance. 3) They demonstrated that with the enhanced depth, the performance of monocular 3D detection and tracking can be significantly improved. 4) Future works can include end-to-end training of the proposed method.
+Detectors such as RTM3D with the AB3D tracker, are state-of-the-art.
 
 #### Answers:
 
-1.
+1. Their full model Pseudo-LiDAR-RGB-Tracklet (PRT fusion) fuses information from both 2D and 3D representations across multiple frames. This fusion method achieves the state-of-the-art performance of per-object depth estimation on the Waymo Open Dataset, the KITTI detection dataset, and the KITTI MOT dataset. 
 
-2.
+2. Fused feature is obtained using deep neural network to fuse the two features on PL(Pseudo-LiDAR representation for the object within the bounding box in the image plane) and the RGB image features. Also compact features for the entire image can be extracted by using a pre-trained convolution neural network.
 
-3.
+3. Not mentioned.
 
-4.
+4. The analysis suggests that depth has the most significant impact on detection (Average Precision) and tracking (MOTA) performance; with the stateof the-art monocular 3D detector CenterNet (ranked 1st on nuScene dataset) and the AB3D tracker. They use “+ GT” to indicate that they replaced the prediction with the ground truth.
 
-5.
-
-6.
-
-
+5. The extraction process of the pseudo-LiDAR representation consists of three steps: (1) dense depth estimation for each image, (2) lifting predicted dense depth into pseudo-LiDAR, and (3) pseudo-LiDAR representation extraction with a neural network. For any RGB image, the depth estimation can be accomplished by using a dense depth estimation network.
+Hardware details are not mentioned.
 
 ### Deep Learning for Real-Time 3D Multi-Object Detection, Localisation, and Tracking: Application to Smart Mobility
 
