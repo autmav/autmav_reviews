@@ -253,29 +253,34 @@ To process all detections of one image for implementation in Python, their track
 [Link to the Source Code]()
 
 **Authors:** 
+Yipeng Zhu, Tao Wang, Shiqiang Zhu
 
 **Date:** 
+July 3-5, 2021
 
 **Journal or Conference:** ...
+2021 6th IEEE International Conference on Advanced Robotics and Mechatronics
 
 #### Review:
-
-Type a paragraph
+1) A real-time monocular 3D people localization method is proposed, with efficient monocular depth estimation and 2D object detection neural networks adopted.
+2) An evaluation index is proposed to reflect the monocular depth estimation quality. A Kalman filter based tracking module is adopted to improve localization accuracy.
+3) The 3D people localization and tracking pipeline is implemented on an edge device and evaluated for error and speed. This lightweight implementation provides a cost-effective people localization solution for those applications with limited computing resource.
 
 #### Answers:
 
-1.
+1. Hardware: CSI camera which provides 30 fps RGB images of resolution 320x180 is used. MDE and 2D object detection module run on the Jetson Xavier NX developer kit. Drone model is not mentioned.
 
-2.
+2. It proposed a lightweight monocular 3D people localization pipeline on the results of monocular depth estimation and 2D people detection with neural networks. Aiming for real-time performance on mobile devices, a fine-tuning friendly solution is implemented (in indoor environment) on an edge device and evaluated for error and speed. The overall performance reaches 12 fps with an acceptable accuracy compared to ground truth.
 
-3.
+3. Passive vision-based localization
 
-4.
+4. Temporal information
 
-5.
+5. 2D object detection results are adopted for finding accurate people location. Finally, a Kalman filter based tracking module is adopted is adopted to fuse temporal information and improve the accuracy. It uses interpretable pipelines method for people localization. Temporal information is used to improve localization accuracy by a filter based tracking module. The system strikes a balance between high accuracy and high frame rate.
 
-6.
+6. Not mentioned.
 
+7. Neural network: MonoDepth2 , self-supervised monocular depth estimation method, has a satisfying performance with acceptable model complexity. It consists of a general U-net encoder-decoder structure.
 
 ### Design of a Robust System Architecture for Tracking Vehicle on Highway Based on Monocular Camera
 
