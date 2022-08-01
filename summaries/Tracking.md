@@ -230,21 +230,27 @@ Future works: adding measurements from LiDAR and radar sensors
 
 #### Answers:
 
-1. The EKF(Extended Kalman filter) accurately estimates the real state uncertainties and can be therefore used as a starting point for multi-sensor fusion.
-They evaluated EKF with y_2D and y_3D in the measurement update. The former has a far better performance. Furthermore, in the latter case the uncertainty gets too small and is useless for fusion with detections from other sensors.
+1- Drone details is not mentioned. Hardware:
+It is focused on cameras. The network requires approximately 80 ms to process one image on a regular consumer graphics card (Nvidia GeForce GTX 1060 of 2014).
 
-2. For closer objects the projected center is more difficult to determine. So they increase the noise of them.
+2- It tracks cars and pedestrian.
+To process all detections of one image for implementation in Python, their tracking needs 3 ms (EFK computational efficiency).
+Other details are reported in the review part.
+
+3- Type: Visual based. All images and sensor data are from KITTI dataset.
+Pseudo sensors: Extended Kalman filter based monocular 3D multi-object tracker and detecter and depth estimation
+Details: For closer objects the projected center is more difficult to determine. So they increase the noise of them.
 They pre-trained the network on the NuScenes dataset and fine-tuned it on the training split of the KITTI dataset. They configured the network to output 3D detections besides the 2D ones in order to use this net also for track initialization. In comparison to other monocular 3D object detectors, the former has a very low FP and FN rate.
 
-3. They present a multi object tracking approach composed of an Extended Kalman filter estimating the 3D state by using these detections for track initialization. They use state uncertainties transformed into the measurement space while completely ignoring appearance features.
+4- The EKF(Extended Kalman filter) accurately estimates the real state uncertainties and can be therefore used as a starting point for multi-sensor fusion.
+Performance: They evaluated EKF with y_2D and y_3D in the measurement update. The former has a far better performance. In the latter case the uncertainty gets too small and is useless for fusion with detections from other sensors.
+
+5- They achieved state-ofthe-art results (on the KITTI dataset with an association solely based on 2D bounding box comparison), with very robust tracks in terms of the HOTA score. Their approach can use detections from an arbitrary monocular 3D object detector. Therefore it can even improve its performance with better detections.
 To improve tracking performance they tested an Unscented Kalman filter (UKF), which is known to handle non-linear measurement equations better. However, the UKF is still unimodal and does not provide better scores. Multimodal estimators such as the Particle filter or a variant of a Gaussian Mixture filter would be more appropriate. But they do not consider these types of Bayes filters for simplicity.
 
-4. They achieved state-ofthe-art results (on the KITTI dataset with an association solely based on 2D bounding box comparison), with very robust tracks in terms of the HOTA score. Their approach can use detections from an arbitrary monocular 3D object detector. Therefore it can even improve its performance with better detections.
-To process all detections of one image for implementation in Python, their tracking needs 3 ms (EFK computational efficiency).
+6- Not mentioned.
 
-5. It is focused on cameras. The network requires approximately 80 ms to process one image on a regular consumer graphics card (Nvidia GeForce GTX 1060 of 2014). 
-
-6. Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
+7- Challenges: Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
 
 ### Real-time Monocular 3D People Localization and Tracking on Embedded System
 
