@@ -326,25 +326,31 @@ Type a paragraph
 [Link to the Source Code]()
 
 **Authors:** 
-
+Jongsub Yu and Hyukdoo Choi
 **Date:** 
-
-**Journal or Conference:** ...
+Published: 27 December 2021
+**Journal or Conference:** MDPI journals
 
 #### Review:
 
-Type a paragraph
+All details is mentioned below.
 
 #### Answers:
 
-1.
+1. A single Nvidia GeForce RTX 3090 (24 GB) + a single GPU of Tesla V100
 
-2.
+2. It tracks cars and pedestrians.
+Evaluation Metrics: error rate of the depth per object.
+As experiment, they tried using two different network architectures: YOLO v3 and YOLO v4. Since we focused on higher detection speed, we used only one-stage detectors for the experiment.
 
-3.
+3. Sensors and pseudo sensors: An 2D object detector with depth estimation using monocular camera images. (Just visual)
 
-4.
+4. It doesn't use fusion.
 
-5.
+5. This network architecture is based on YOLO v4, which is a fast and accurate one-stage object detector. They added "only a single" additional channel(unlike Recent 3D object detectors) to the output layer for (straightforward) depth estimation. To train depth prediction, they extract the closest depth from the 3D bounding box coordinates of ground truth labels in the KITTI dataset. They designed a novel loss function to train depth estimation striking a balance between near and far distance accuracy.
 
-6.
+6. Not mentioned
+
+7. Performance: This model achieved an AP of 71.68% for cars and 62.12% for pedestrians and a mean error rate of 3.71% in the KITTI 3D object detection dataset. It also achieved a detection speed of 25 FPS. This detection has far better performance and faster detection speed than the latest 3D detection models (e.g. D4LCN and GM3D).
+
+8. For further research: this model may be applied to object tracking tasks. To improve the detection performance, adapting different object detection architecture such as EfficientDet is expected in future works.
