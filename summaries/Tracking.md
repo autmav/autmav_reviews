@@ -127,7 +127,7 @@ IEEE
 
 #### Review:
 
-1) They conducted a systematic analysis identifying that per-object depth estimation is a major performance bottleneck of current 3D monocular detection and tracking-by-detection methods. 2) They proposed a novel method that fuses pseudo-LiDAR and RGB information across the temporal domain to significantly enhance per-object depth estimation performance. 3) They demonstrated that with the enhanced depth, the performance of monocular 3D detection and tracking can be significantly improved. 4) Future works can include end-to-end training of the proposed method.
+1)They conducted a systematic analysis identifying that per-object depth estimation is a major performance bottleneck of current 3D monocular detection and tracking-by-detection methods. 2) They proposed a novel method that fuses pseudo-LiDAR and RGB information across the temporal domain to significantly enhance per-object depth estimation performance. 3) They demonstrated that with the enhanced depth, the performance of monocular 3D detection and tracking can be significantly improved. 4) Future works can include end-to-end training of the proposed method.
 Detectors such as RTM3D with the AB3D tracker, are state-of-the-art.
 
 #### Answers:
@@ -183,28 +183,31 @@ Type a paragraph
 [Link to the Source Code]()
 
 **Authors:** 
-
+Sangil Lee, Chungkeun Lee, Haram Kim, and H. Jin Kim*
 **Date:** 
-
+January 19, 2021
 **Journal or Conference:** ...
-
+Springer journal
 #### Review:
 
-Type a paragraph
+They compare the depth map of their algorithm with the result of (un-)supervised MDE algorithms. Their depth estimation with an object-aware approach performance is comparable to that of MDE algorithms which train depth indirectly (or directly) from stereo image pairs (or depth image), and better than that of algorithms trained with monocular images only, in terms of the error and the accuracy. Also their computational load is much lighter than the learning-based methods. 
 
 #### Answers:
 
 1.
 
-2.
+2. It proposes the object depth estimation in real-time for autonomous driving, using only a monocular camera in an onboard computer with a low-cost GPU. This algorithm is implemented on an onboard system and pursues real-time performance on it.
+Validation: they validate the scene depth accuracy of sparse features with KITTI and its ground-truth depth map made from LiDAR observations quantitatively, and the depth of detected object with the Hyundai driving datasets and satellite maps qualitatively.
 
-3.
+3. Pseudo sensors: learning-based object detection, depth estimation (Their depths are estimated from the proposed sparse feature-based visual odometry and depth regression.)
 
 4.
 
-5.
+5. This algorithm estimates scene depth from a sparse feature-based visual odometry algorithm and detects/tracks objects’ bounding box by utilizing the existing object detection algorithm in parallel.
 
 6.
+
+7.
 
 
 ### Monocular 3D Multi-Object Tracking with an EKF Approach for Long-Term Stable Tracks
