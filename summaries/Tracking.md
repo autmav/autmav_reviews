@@ -190,24 +190,29 @@ January 19, 2021
 Springer journal
 #### Review:
 
-They compare the depth map of their algorithm with the result of (un-)supervised MDE algorithms. Their depth estimation with an object-aware approach performance is comparable to that of MDE algorithms which train depth indirectly (or directly) from stereo image pairs (or depth image), and better than that of algorithms trained with monocular images only, in terms of the error and the accuracy. Also their computational load is much lighter than the learning-based methods. 
+Its performance is comparable to that of MDE algorithms which train depth indirectly (or directly) from stereo image pairs (or depth image), and better than that of algorithms trained with monocular images only, in terms of the error and the accuracy. Also their computational load is much lighter than the learning-based methods.
 
 #### Answers:
 
-1.
+1. Not mentioned
 
-2. It proposes the object depth estimation in real-time for autonomous driving, using only a monocular camera in an onboard computer with a low-cost GPU. This algorithm is implemented on an onboard system and pursues real-time performance on it.
+2. It proposes the object depth estimation in real-time for autonomous driving, using only a monocular camera with a geometric approach, in an onboard computer with a low-cost GPU from a sparse feature-based visual odometry algorithm. (The camera’s own 6-DoF pose should be recognized in advance.)
+Implementation details: they implement simultaneous object detection(requires GPUintensive computation) and depth estimation(requires CPU-intensive computation) with dual-threading in an onboard environment with NVIDIA Jetson TX2 platform.
+Implementation parts: 1) feature extraction/tracking and object detection from a single image frame. 2)feature’s depth estimation and object tracking/merging. 3) object depth estimation and upkeep step.
 Validation: they validate the scene depth accuracy of sparse features with KITTI and its ground-truth depth map made from LiDAR observations quantitatively, and the depth of detected object with the Hyundai driving datasets and satellite maps qualitatively.
+The object classification groups: road boundary lines, traffic light, traffic signs, and vehicles
 
-3. Pseudo sensors: learning-based object detection, depth estimation (Their depths are estimated from the proposed sparse feature-based visual odometry and depth regression.)
+3. Pseudo sensors: learning-based object detection, depth estimation
 
-4.
+4. Data fusion is not mentioned
 
-5. This algorithm estimates scene depth from a sparse feature-based visual odometry algorithm and detects/tracks objects’ bounding box by utilizing the existing object detection algorithm in parallel.
+5. In the object recognition stage, objects are detected and tracked and their depths are calculated from feature points within their ROI. As the feature-based scene reconstruction algorithm shares KLT tracking results with the object recognition method, it is not necessary to perform tracking twice in the object tracking procedure, thus reducing execution time.
 
-6.
+6. Not mentioned
 
-7.
+7. Future works: next step is to estimate the motion of multiple static and dynamic objects in the scene and to compute their depths by compensating the ego-motion.
+
+8. Dataset: KITTI, Waymo open dataset and nuScenes do not provide labels for static objects. So they utilize the Hyundai MnSoft driving dataset including many annotations in dicating static objects such as traffic signs and road signs.
 
 
 ### Monocular 3D Multi-Object Tracking with an EKF Approach for Long-Term Stable Tracks
@@ -224,7 +229,7 @@ Date of Conference: 01-04 November 2021
 
 **Journal or Conference:** ...
 IEEE journal
-2021 IEEE 24th International Conference on Information Fusion (FUSION)
+2021 IEEE 24th International Conference on Information Fusion
 
 #### Review:
 
