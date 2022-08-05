@@ -38,7 +38,7 @@ Hiroto Yamashita, Takashi Morimoto, Ikuhisa Mitsugami
 **Date:** 
 2021
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 2021 IEEE 10th Global Conference on Consumer Electronics (GCCE)
 
 #### Review:
@@ -72,7 +72,7 @@ Experimental results confirmed that our system ran with reasonable response time
 
 **Date:** 
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 
 #### Review:
 
@@ -122,7 +122,7 @@ Add the papers you find in the following:
 
 **Date:**  8 Jun 2022
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 IEEE
 
 #### Review:
@@ -143,37 +143,46 @@ Detectors such as RTM3D with the AB3D tracker, are state-of-the-art.
 5. The extraction process of the pseudo-LiDAR representation consists of three steps: (1) dense depth estimation for each image, (2) lifting predicted dense depth into pseudo-LiDAR, and (3) pseudo-LiDAR representation extraction with a neural network. For any RGB image, the depth estimation can be accomplished by using a dense depth estimation network.
 Hardware details are not mentioned.
 
-### Deep Learning for Real-Time 3D Multi-Object Detection, Localisation, and Tracking: Application to Smart Mobility
+### Deep Learning for Real-Time 3D Multi-Object Detection, Localization, and Tracking: Application to Smart Mobility
 
 [Link to the Paper](https://www.mdpi.com/1424-8220/20/2/532)
 
 [Link to the Source Code]()
 
 **Authors:** 
-
+Antoine Mauri, Redouane Khemmar, Benoit Decoux, Nicolas Ragot, Romain Rossi, Rim Trabelsi, Rémi Boutteau , Jean-Yves Ertaud and Xavier Savatier
 **Date:** 
-
-**Journal or Conference:** ...
+Received: 19 November 2019; Accepted: 14 January 2020; Published: 18 January 2020
+**Journal or Conference:**
+MDPI journal
 
 #### Review:
 
-Type a paragraph
+They improve SORT approach for 3D object tracking and introduce an extended Kalman filter to better estimate the position of objects. Extensive experiments carried out on KITTI dataset prove that their proposal outperforms state-of-the-art approches.
 
 #### Answers:
 
-1.
+1. **Hardware:** Nvidia GPU with at least 4 GB of VRAM is crucial. To perform the training of different deep learning architectures, the supercomputer MYRIA is utilized,
+For testing, they use 2 servers equipped with 2 GPU GTX1080Ti each with 11 GB of VRAM and a computer with GPU GTX 1050 4 GB, 16 GB of RAM memory and CPU i5 8300 h.
 
-2.
+2. An end-to-end deep learning based system for multi-object detection, depth estimation, localisation, and tracking for realistic road environments is presented.
 
-3.
+3.**Sensors/Pseudo sensors:** Object tracking + depth Estimation for Localization + stereoscopic sensor + Intel RealsenseTM D435 cameras (Santa Clara, CA, USA)
+*Just for idea* -> Visual SLAM sensor has the ability to provide reliable results when used indoors but has not been tested in outdoor conditions.
 
-4.
+4. Not mentioned
 
-5.
+5. They propose a detector-based on YOLOv3. Subsequently, to localize the detected objects, they put forward an adaptive method aiming to extract 3D information, i.e., depth maps. They use 2 approaches, Monodepth2 and MADNet to design the second module of object localisation. Finaly, a new object tracking method is introduced based on an improved version of the SORT approach. Extended Kalman Filter is presented to improve the estimation of object’s positions.
+Unlike traditional tracking approaches which require target initialization beforehand, their approach consists of using information from object detection and distance estimation to initialize targets and to track them later
 
-6.
+6. Not mentioned
 
+7. **Neural Networks:** two approaches for second module of object localisation.-> Monodepth2 for monocular vision and MADNEt for stereoscopic vision (These approaches are then evaluated over KITTI datasets containing depth information)
 
+8. **Environments:** They aim to use our solution in both indoor (such as smart wheelchair for disabled people) and outdoor (soft mobility for car and tramway) for road environments.
+
+9. **Dataset:** due to the lack of a publicly available dataset for railway environments (barring RailSem19 dataset),they propose to extend the current version of their system by including a *new stereoscopic sensor* so that they can collect their own dataset under outdoor conditions with large and adjustable baselines.
+Along with KITTI, many other datasets are available such as CityScapes, Pascal VO, MS-COCO, ImageNet and OpenImages devoted to the road domain
 
 ### Realtime Object-aware Monocular Depth Estimation in Onboard Systems
 
@@ -186,7 +195,7 @@ Type a paragraph
 Sangil Lee, Chungkeun Lee, Haram Kim, and H. Jin Kim*
 **Date:** 
 January 19, 2021
-**Journal or Conference:** ...
+**Journal or Conference:**
 Springer journal
 #### Review:
 
@@ -197,12 +206,12 @@ Its performance is comparable to that of MDE algorithms which train depth indire
 1. Not mentioned
 
 2. It proposes the object depth estimation in real-time for autonomous driving, using only a monocular camera with a geometric approach, in an onboard computer with a low-cost GPU from a sparse feature-based visual odometry algorithm. (The camera’s own 6-DoF pose should be recognized in advance.)
-Implementation details: they implement simultaneous object detection(requires GPUintensive computation) and depth estimation(requires CPU-intensive computation) with dual-threading in an onboard environment with NVIDIA Jetson TX2 platform.
-Implementation parts: 1) feature extraction/tracking and object detection from a single image frame. 2)feature’s depth estimation and object tracking/merging. 3) object depth estimation and upkeep step.
-Validation: they validate the scene depth accuracy of sparse features with KITTI and its ground-truth depth map made from LiDAR observations quantitatively, and the depth of detected object with the Hyundai driving datasets and satellite maps qualitatively.
+**Implementation details:** they implement simultaneous object detection(requires GPUintensive computation) and depth estimation(requires CPU-intensive computation) with dual-threading in an onboard environment with NVIDIA Jetson TX2 platform.
+**Implementation parts:** 1) feature extraction/tracking and object detection from a single image frame. 2)feature’s depth estimation and object tracking/merging. 3) object depth estimation and upkeep step.
+**Validation:** they validate the scene depth accuracy of sparse features with KITTI and its ground-truth depth map made from LiDAR observations quantitatively, and the depth of detected object with the Hyundai driving datasets and satellite maps qualitatively.
 The object classification groups: road boundary lines, traffic light, traffic signs, and vehicles
 
-3. Pseudo sensors: learning-based object detection, depth estimation
+3. **Pseudo sensors:** learning-based object detection, depth estimation
 
 4. Data fusion is not mentioned
 
@@ -210,9 +219,9 @@ The object classification groups: road boundary lines, traffic light, traffic si
 
 6. Not mentioned
 
-7. Future works: next step is to estimate the motion of multiple static and dynamic objects in the scene and to compute their depths by compensating the ego-motion.
+7. **Future works:** next step is to estimate the motion of multiple static and dynamic objects in the scene and to compute their depths by compensating the ego-motion.
 
-8. Dataset: KITTI, Waymo open dataset and nuScenes do not provide labels for static objects. So they utilize the Hyundai MnSoft driving dataset including many annotations in dicating static objects such as traffic signs and road signs.
+8. **Dataset:** KITTI, Waymo open dataset and nuScenes do not provide labels for static objects. So they utilize the Hyundai MnSoft driving dataset including many annotations in dicating static objects such as traffic signs and road signs.
 
 
 ### Monocular 3D Multi-Object Tracking with an EKF Approach for Long-Term Stable Tracks
@@ -227,7 +236,7 @@ Andreas Reich, Hans-Joachim Wuensche
 **Date:** 
 Date of Conference: 01-04 November 2021
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 IEEE journal
 2021 IEEE 24th International Conference on Information Fusion
 
@@ -238,27 +247,27 @@ Future works: adding measurements from LiDAR and radar sensors
 
 #### Answers:
 
-1- Drone details is not mentioned. Hardware:
-It is focused on cameras. The network requires approximately 80 ms to process one image on a regular consumer graphics card (Nvidia GeForce GTX 1060 of 2014).
+1- Drone details is not mentioned. 
+**Hardware:** It is focused on cameras. The network requires approximately 80 ms to process one image on a regular consumer graphics card (Nvidia GeForce GTX 1060 of 2014).
 
 2- It tracks cars and pedestrian.
 To process all detections of one image for implementation in Python, their tracking needs 3 ms (EFK computational efficiency).
 Other details are reported in the review part.
 
 3- Type: Visual based. All images and sensor data are from KITTI dataset.
-Pseudo sensors: Extended Kalman filter based monocular 3D multi-object tracker and detecter and depth estimation
-Details: For closer objects the projected center is more difficult to determine. So they increase the noise of them.
+**Pseudo sensors:** Extended Kalman filter based monocular 3D multi-object tracker and detecter and depth estimation
+**Details:** For closer objects the projected center is more difficult to determine. So they increase the noise of them.
 They pre-trained the network on the NuScenes dataset and fine-tuned it on the training split of the KITTI dataset. They configured the network to output 3D detections besides the 2D ones in order to use this net also for track initialization. In comparison to other monocular 3D object detectors, the former has a very low FP and FN rate.
 
 4- The EKF(Extended Kalman filter) accurately estimates the real state uncertainties and can be therefore used as a starting point for multi-sensor fusion.
-Performance: They evaluated EKF with y_2D and y_3D in the measurement update. The former has a far better performance. In the latter case the uncertainty gets too small and is useless for fusion with detections from other sensors.
+**Performance:** They evaluated EKF with y_2D and y_3D in the measurement update. The former has a far better performance. In the latter case the uncertainty gets too small and is useless for fusion with detections from other sensors.
 
 5- They achieved state-ofthe-art results (on the KITTI dataset with an association solely based on 2D bounding box comparison), with very robust tracks in terms of the HOTA score. Their approach can use detections from an arbitrary monocular 3D object detector. Therefore it can even improve its performance with better detections.
 To improve tracking performance they tested an Unscented Kalman filter (UKF), which is known to handle non-linear measurement equations better. However, the UKF is still unimodal and does not provide better scores. Multimodal estimators such as the Particle filter or a variant of a Gaussian Mixture filter would be more appropriate. But they do not consider these types of Bayes filters for simplicity.
 
 6- Not mentioned.
 
-7- Challenges: Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
+7- **Challenges:** Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
 
 ### Real-time Monocular 3D People Localization and Tracking on Embedded System
 
@@ -272,7 +281,7 @@ Yipeng Zhu, Tao Wang, Shiqiang Zhu
 **Date:** 
 July 3-5, 2021
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 2021 6th IEEE International Conference on Advanced Robotics and Mechatronics
 
 #### Review:
@@ -282,7 +291,7 @@ July 3-5, 2021
 
 #### Answers:
 
-1. Hardware: CSI camera which provides 30 fps RGB images of resolution 320x180 is used. MDE and 2D object detection module run on the Jetson Xavier NX developer kit. Drone model is not mentioned.
+1. **Hardware:** CSI camera which provides 30 fps RGB images of resolution 320x180 is used. MDE and 2D object detection module run on the Jetson Xavier NX developer kit. Drone model is not mentioned.
 
 2. It proposed a lightweight monocular 3D people localization pipeline on the results of monocular depth estimation and 2D people detection with neural networks. Aiming for real-time performance on mobile devices, a fine-tuning friendly solution is implemented (in indoor environment) on an edge device and evaluated for error and speed. The overall performance reaches 12 fps with an acceptable accuracy compared to ground truth.
 
@@ -294,7 +303,7 @@ July 3-5, 2021
 
 6. Not mentioned.
 
-7. Neural network: MonoDepth2 , self-supervised monocular depth estimation method, has a satisfying performance with acceptable model complexity. It consists of a general U-net encoder-decoder structure.
+7. **Neural network:** MonoDepth2 , self-supervised monocular depth estimation method, has a satisfying performance with acceptable model complexity. It consists of a general U-net encoder-decoder structure.
 
 ### Design of a Robust System Architecture for Tracking Vehicle on Highway Based on Monocular Camera
 
@@ -306,7 +315,7 @@ July 3-5, 2021
 
 **Date:** 
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 
 #### Review:
 
@@ -351,14 +360,14 @@ All details is mentioned below.
 Evaluation Metrics: error rate of the depth per object.
 As experiment, they tried using two different network architectures: YOLO v3 and YOLO v4. Since we focused on higher detection speed, we used only one-stage detectors for the experiment.
 
-3. Sensors and pseudo sensors: An 2D object detector with depth estimation using monocular camera images. (Just visual)
+3. **Sensors/pseudo sensors:** An 2D object detector with depth estimation using monocular camera images. (Just visual)
 
 4. It doesn't use fusion.
 
-5. This network architecture is based on YOLO v4, which is a fast and accurate one-stage object detector. They added "only a single" additional channel(unlike Recent 3D object detectors) to the output layer for (straightforward) depth estimation. To train depth prediction, they extract the closest depth from the 3D bounding box coordinates of ground truth labels in the KITTI dataset. They designed a novel loss function to train depth estimation striking a balance between near and far distance accuracy.
+5. This network architecture is based on YOLO v4, which is a fast and accurate one-stage object detector. They added *"only a single"* additional channel(unlike Recent 3D object detectors) to the output layer for (straightforward) depth estimation. To train depth prediction, they extract the closest depth from the 3D bounding box coordinates of ground truth labels in the KITTI dataset. They designed a novel loss function to train depth estimation striking a balance between near and far distance accuracy.
 
 6. Not mentioned
 
-7. Performance: This model achieved an AP of 71.68% for cars and 62.12% for pedestrians and a mean error rate of 3.71% in the KITTI 3D object detection dataset. It also achieved a detection speed of 25 FPS. This detection has far better performance and faster detection speed than the latest 3D detection models (e.g. D4LCN and GM3D).
+7. **Performance:** This model achieved an AP of 71.68% for cars and 62.12% for pedestrians and a mean error rate of 3.71% in the KITTI 3D object detection dataset. It also achieved a detection speed of 25 FPS. This detection has far better performance and faster detection speed than the latest 3D detection models (e.g. D4LCN and GM3D).
 
-8. For further research: this model may be applied to object tracking tasks. To improve the detection performance, adapting different object detection architecture such as EfficientDet is expected in future works.
+8. **Further research:** this model may be applied to object tracking tasks. To improve the detection performance, adapting different object detection architecture such as EfficientDet is expected in future works.
