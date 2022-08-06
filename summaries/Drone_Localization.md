@@ -109,11 +109,11 @@ IMU sensor is not used in this approach.
 
 In this approach, each sensor measures two angles, the azimuth angle and the elevation angle of the target. This measured information will then be sent to the centralized collector (sink) node through the sensor network. In the next step, the sink node estimates the location of the UAV based on the collected angle value. To simplify the problem, the following assumptions were made.
 
-    • each sensor node has the ability to detect an aerial moving object and extract the two mentioned angles using image processing techniques. 
+    * each sensor node has the ability to detect an aerial moving object and extract the two mentioned angles using image processing techniques. 
 
-    • The clocks of the sensor nodes are synchronized. In result, all of the sensor nodes can take a picture at the same time. 
+    * The clocks of the sensor nodes are synchronized. In result, all of the sensor nodes can take a picture at the same time. 
 
-    • The entire set of sensor nodes shares a common coordinate system. They are positioned in the same direction and know the position of each sensor.
+    * The entire set of sensor nodes shares a common coordinate system. They are positioned in the same direction and know the position of each sensor.
 
 4. Explain the posotioning algorithm *exactly*.
 
@@ -146,7 +146,7 @@ The proposed schemes are evaluated in the simulation environments.
 
  Two types of UAV are considered:
 
-    • a high-altitude UAV, where the altitude is 550 m 
-    • a low-altitude UAV, where the altitude is 50 m. 
-    
+    * a high-altitude UAV, where the altitude is 550 m 
+    * a low-altitude UAV, where the altitude is 50 m. 
+
  The number of sensors, M, changes from 4 to 30, and when the number of sensors is selected, the       position of each sensor is uniformly selected from the 3D range (0, 1000) 3 (0, 100) 3 (0, 10). However, the position of the target UAV is fixed at (500, 200, 50) for the low-altitude UAV and fixed at (500, 200, 550) for the high-altitude UAV. The relative position between the target UAV and each sensor is randomized by random selection of sensor positions. Also, the measurement error for azimuth angle and elevation angle is considered. Both of them are modelled as a Gaussian random variable with the same zero mean and a standard deviation of degrees. As a result, the accuracies of the 2D, 3D situation and centroid schemes for a low-altitude target UAV and various numbers of sensors are compared.
