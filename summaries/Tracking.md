@@ -127,7 +127,9 @@ IEEE
 
 #### Review:
 
-1)They conducted a systematic analysis identifying that per-object depth estimation is a major performance bottleneck of current 3D monocular detection and tracking-by-detection methods. 2) They proposed a novel method that fuses pseudo-LiDAR and RGB information across the temporal domain to significantly enhance per-object depth estimation performance. 3) They demonstrated that with the enhanced depth, the performance of monocular 3D detection and tracking can be significantly improved. 4) Future works can include end-to-end training of the proposed method.
+1)They conducted a systematic analysis identifying that per-object depth estimation is a major performance bottleneck of current 3D monocular detection and tracking-by-detection methods.
+2)They proposed a novel method that fuses pseudo-LiDAR and RGB information across the temporal domain to significantly enhance per-object depth estimation performance.
+3)They demonstrated that with the enhanced depth, the performance of monocular 3D detection and tracking can be significantly improved. 4) Future works can include end-to-end training of the proposed method.
 Detectors such as RTM3D with the AB3D tracker, are state-of-the-art.
 
 #### Answers:
@@ -151,8 +153,10 @@ Hardware details are not mentioned.
 
 **Authors:** 
 Antoine Mauri, Redouane Khemmar, Benoit Decoux, Nicolas Ragot, Romain Rossi, Rim Trabelsi, Rémi Boutteau , Jean-Yves Ertaud and Xavier Savatier
+
 **Date:** 
 Received: 19 November 2019; Accepted: 14 January 2020; Published: 18 January 2020
+
 **Journal or Conference:**
 MDPI journal
 
@@ -168,7 +172,7 @@ For testing, they use 2 servers equipped with 2 GPU GTX1080Ti each with 11 GB of
 
 2. An end-to-end deep learning based system for multi-object detection, depth estimation, localisation, and tracking for realistic road environments is presented.
 
-3.**Sensors/Pseudo sensors:** Object tracking + depth Estimation for Localization + stereoscopic sensor + Intel RealsenseTM D435 cameras (Santa Clara, CA, USA)
+3. **Sensors/Pseudo sensors:** Object tracking + depth Estimation for Localization + stereoscopic sensor + Intel RealsenseTM D435 cameras (Santa Clara, CA, USA)
 *Just for idea* -> Visual SLAM sensor has the ability to provide reliable results when used indoors but has not been tested in outdoor conditions.
 
 4. Not mentioned
@@ -243,32 +247,32 @@ IEEE journal
 
 #### Review:
 
-1) Accurate estimation of 3D state and its uncertainty by using 2D bounding boxes and thus avoiding temporal correlations of measurement errors. It's extensible by detections from other sensors such as LiDAR and radar. 2) Compared to state-of-the-art approaches (based on deep networks), this approach allows more insights and the output is more explainable.It explicitly separates geometric-based from appearance-based association. 3) With the proposed tracker they achieve state-of-the-art results in the KITTI multi-object tracking benchmark for both classes, cars and pedestrians. In terms of low numbers of identity switches and track fragmentations, they even outperform all other approaches, indicating long-term stable tracks.
+1)Accurate estimation of 3D state and its uncertainty by using 2D bounding boxes and thus avoiding temporal correlations of measurement errors. It's extensible by detections from other sensors such as LiDAR and radar. 2) Compared to state-of-the-art approaches (based on deep networks), this approach allows more insights and the output is more explainable.It explicitly separates geometric-based from appearance-based association. 3) With the proposed tracker they achieve state-of-the-art results in the KITTI multi-object tracking benchmark for both classes, cars and pedestrians. In terms of low numbers of identity switches and track fragmentations, they even outperform all other approaches, indicating long-term stable tracks.
 Future works: adding measurements from LiDAR and radar sensors
 
 #### Answers:
 
-1- Drone details is not mentioned. 
-**Hardware:** It is focused on cameras. The network requires approximately 80 ms to process one image on a regular consumer graphics card (Nvidia GeForce GTX 1060 of 2014).
+1. Drone details is not mentioned. 
+Hardware: It is focused on cameras. The network requires approximately 80 ms to process one image on a regular consumer graphics card (Nvidia GeForce GTX 1060 of 2014).
 
-2- It tracks cars and pedestrian.
+2. It tracks cars and pedestrian.
 To process all detections of one image for implementation in Python, their tracking needs 3 ms (EFK computational efficiency).
 Other details are reported in the review part.
 
-3- Type: Visual based. All images and sensor data are from KITTI dataset.
+3. Type: Visual based. All images and sensor data are from KITTI dataset.
 **Pseudo sensors:** Extended Kalman filter based monocular 3D multi-object tracker and detecter and depth estimation
 **Details:** For closer objects the projected center is more difficult to determine. So they increase the noise of them.
 They pre-trained the network on the NuScenes dataset and fine-tuned it on the training split of the KITTI dataset. They configured the network to output 3D detections besides the 2D ones in order to use this net also for track initialization. In comparison to other monocular 3D object detectors, the former has a very low FP and FN rate.
 
-4- The EKF(Extended Kalman filter) accurately estimates the real state uncertainties and can be therefore used as a starting point for multi-sensor fusion.
+4. The EKF(Extended Kalman filter) accurately estimates the real state uncertainties and can be therefore used as a starting point for multi-sensor fusion.
 **Performance:** They evaluated EKF with y_2D and y_3D in the measurement update. The former has a far better performance. In the latter case the uncertainty gets too small and is useless for fusion with detections from other sensors.
 
-5- They achieved state-ofthe-art results (on the KITTI dataset with an association solely based on 2D bounding box comparison), with very robust tracks in terms of the HOTA score. Their approach can use detections from an arbitrary monocular 3D object detector. Therefore it can even improve its performance with better detections.
+5. They achieved state-ofthe-art results (on the KITTI dataset with an association solely based on 2D bounding box comparison), with very robust tracks in terms of the HOTA score. Their approach can use detections from an arbitrary monocular 3D object detector. Therefore it can even improve its performance with better detections.
 To improve tracking performance they tested an Unscented Kalman filter (UKF), which is known to handle non-linear measurement equations better. However, the UKF is still unimodal and does not provide better scores. Multimodal estimators such as the Particle filter or a variant of a Gaussian Mixture filter would be more appropriate. But they do not consider these types of Bayes filters for simplicity.
 
-6- Not mentioned.
+6. Not mentioned.
 
-7- **Challenges:** Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
+7. **Challenges:** Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
 
 ### Real-time Monocular 3D People Localization and Tracking on Embedded System
 
