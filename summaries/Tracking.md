@@ -313,29 +313,39 @@ July 3-5, 2021
 [Link to the Source Code]()
 
 **Authors:** 
+Zhihong Wu, Fuxiang Li, Yuan Zhu, Ke Lu 1 and Mingzhi Wu
 
 **Date:** 
+Received: 25 February 2022, Accepted: 26 April 2022, Published: 27 April 2022
 
 **Journal or Conference:**
+MDPI journal
 
 #### Review:
-
-Type a paragraph
+1) A multi-target tracking system based on a mono camera is constructed, which can be used on the expressway scene
+2) An object detector combined with a depth estimator is designed to resolve the mono camera depth lost problem.
+3) The whole system is tested under the highway scenario and the performance of the lateral and longitudinal is evaluated qualitatively and quantitatively.
 
 #### Answers:
 
-1.
+1. Drone hasnt been used.
 
-2.
+2. The tracking system is tested on the vehicle equipped with a forward mono camera, and the results show that the lateral and longitudinal position and velocity can satisfy the need for Adaptive Cruise Control (ACC), Navigation On Pilot (NOP), Auto Emergency Braking (AEB), and other applications.
+To evaluate the mono tracking system, a Lidar-based ground truth method is proposed.
 
-3.
+3. Pseudo sensors: MDE, multi-target tracking system and object detection (with monocular camera) 
+Lidar sensor for evaluation is used.
 
-4.
+4. Is not mentioned.
 
-5.
+5. It applies the YOLO detection algorithm combined with the depth estimation algorithm, Extend Kalman Filter, and Nearest Neighbor algorithm with a gating trick to build the tracking system.
+A YOLO-based detector is used to give out the bounding boxes and a vanishing point-based depth estimator is used to estimate the distance to compensate for the lost depth information caused by projecting from the 3D Cartesian coordinate to the 2D image plane. 
+To track the vehicle on the highway, a constant velocity model is used in this paper and the Extended Kalman filter is applied.
+Nearest neighbor with a gating trick is adopted to handle the data association problem. Besides these, a track management strategy is proposed to initialize, maintain, and delete tracks.
 
 6.
 
+7. **Future works:** In the future, they will integrate the Radar sensor into the tracking system to improve its performance of the tracking system. Additionally, the robustness of the tracking system under different light and weather conditions is another big problem needed to address in future work.
 
 ### YOLO MDE: Object Detection with Monocular Depth Estimation
 
