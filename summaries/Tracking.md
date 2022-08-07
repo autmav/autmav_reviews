@@ -159,6 +159,7 @@ MDPI journal
 #### Review:
 
 They improve SORT approach for 3D object tracking and introduce an extended Kalman filter to better estimate the position of objects. Extensive experiments carried out on KITTI dataset prove that their proposal outperforms state-of-the-art approches.
+*Different types of Object Detection Based on Deep Learning (like Object Detection Based SSD, Detectron Object Detection, YOLOv3 Object Detection), Object Depth Estimation(monocular and stereoscopic), Object Tracking (2D and 3D) and their performance are mentioned in the article.*
 
 #### Answers:
 
