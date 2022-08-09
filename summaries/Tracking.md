@@ -180,7 +180,7 @@ For testing, they use 2 servers equipped with 2 GPU GTX1080Ti each with 11 GB of
 5. They propose a detector-based on YOLOv3. Subsequently, to localize the detected objects, they put forward an adaptive method aiming to extract 3D information, i.e., depth maps. They use 2 approaches, Monodepth2 and MADNet to design the second module of object localisation. Finaly, a new object tracking method is introduced based on an improved version of the SORT approach. Extended Kalman Filter is presented to improve the estimation of object’s positions.
 Unlike traditional tracking approaches which require target initialization beforehand, their approach consists of using information from object detection and distance estimation to initialize targets and to track them later
 
-6. Not mentioned
+6. Kalman Filter
 
 7. **Neural Networks:** two approaches for second module of object localisation.-> Monodepth2 for monocular vision and MADNEt for stereoscopic vision (These approaches are then evaluated over KITTI datasets containing depth information)
 
@@ -270,7 +270,7 @@ They pre-trained the network on the NuScenes dataset and fine-tuned it on the tr
 5. They achieved state-ofthe-art results (on the KITTI dataset with an association solely based on 2D bounding box comparison), with very robust tracks in terms of the HOTA score. Their approach can use detections from an arbitrary monocular 3D object detector. Therefore it can even improve its performance with better detections.
 To improve tracking performance they tested an Unscented Kalman filter (UKF), which is known to handle non-linear measurement equations better. However, the UKF is still unimodal and does not provide better scores. Multimodal estimators such as the Particle filter or a variant of a Gaussian Mixture filter would be more appropriate. But they do not consider these types of Bayes filters for simplicity.
 
-6. Not mentioned.
+6. Kalman Filter
 
 7. **Challenges:** Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
 
@@ -306,7 +306,7 @@ July 3-5, 2021
 
 5. 2D object detection results are adopted for finding accurate people location. Finally, a Kalman filter based tracking module is adopted is adopted to fuse temporal information and improve the accuracy. It uses interpretable pipelines method for people localization. Temporal information is used to improve localization accuracy by a filter based tracking module. The system strikes a balance between high accuracy and high frame rate.
 
-6. Not mentioned.
+6. Kalman Filter
 
 7. **Neural network:** MonoDepth2 , self-supervised monocular depth estimation method, has a satisfying performance with acceptable model complexity. It consists of a general U-net encoder-decoder structure.
 
@@ -335,21 +335,27 @@ MDPI journal
 1. Drone hasnt been used.
 
 2. The tracking system is tested on the vehicle equipped with a forward mono camera, and the results show that the lateral and longitudinal position and velocity can satisfy the need for Adaptive Cruise Control (ACC), Navigation On Pilot (NOP), Auto Emergency Braking (AEB), and other applications.
-To evaluate the mono tracking system, a Lidar-based ground truth method is proposed.
+Two validation platforms is adopted; one is based on the Lidar sensor and the other is based on RTK.
+It divides objects into 3 classes: cars, truck and vehicle.
 
 3. Pseudo sensors: MDE, multi-target tracking system and object detection (with monocular camera) 
 Lidar sensor for evaluation is used.
 
 4. Is not mentioned.
+Data Association: A simple approach is to update the track with the closet measurement. Mahalanobis distance is used as the metric for desicion.
 
 5. It applies the YOLO detection algorithm combined with the depth estimation algorithm, Extend Kalman Filter, and Nearest Neighbor algorithm with a gating trick to build the tracking system.
 A YOLO-based detector is used to give out the bounding boxes and a vanishing point-based depth estimator is used to estimate the distance to compensate for the lost depth information caused by projecting from the 3D Cartesian coordinate to the 2D image plane. 
 To track the vehicle on the highway, a constant velocity model is used in this paper and the Extended Kalman filter is applied.
 Nearest neighbor with a gating trick is adopted to handle the data association problem. Besides these, a track management strategy is proposed to initialize, maintain, and delete tracks.
+**Track management strategies**:
+![Untitled](https://user-images.githubusercontent.com/106483656/183743445-d9a4a6fc-7a22-4e68-96ed-bde006ee8a87.jpg)
 
-6.
+6. Kalman Filter + (constant velocity motion model is adopted)
 
-7. **Future works:** In the future, they will integrate the Radar sensor into the tracking system to improve its performance of the tracking system. Additionally, the robustness of the tracking system under different light and weather conditions is another big problem needed to address in future work.
+7. **Future works:** In the future, they will integrate the Radar sensor into the tracking system to improve its performance of the tracking system and They will focus on improving recall and precision of the truck by adding more truck data into the training data set. Additionally, the robustness of the tracking system under different light and weather conditions is another big problem needed to address in future work.
+
+8.**Performance:** The average precision (AP) for all classes is more than 85% but less than 65% for truck. At the precise and recall index, the detector performance at vehicle and car is better than at truck. The recall of the truck is less than 68%. The max longitudinal position error is no more than 5 m. The lateral position error is no more than 0.5 m and position accuracy in longitudinal is less than 1.13 m and in the lateral is less than 0.11 m. (lateral has better performance)
 
 ### YOLO MDE: Object Detection with Monocular Depth Estimation
 
