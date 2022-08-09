@@ -69,24 +69,29 @@ Experimental results confirmed that our system ran with reasonable response time
 [Link to the Source Code]()
 
 **Authors:** 
+Hai Duong Nguyen, In Seop Na, Soo Hyung Kim, Guee Sang Lee, Hyung Jeong Yang, Jun Ho Choi
 
 **Date:** 
+Received: 26 July 2017 /Revised: 18 October 2017 /Accepted: 13 May 2018
 
-**Journal or Conference:**
+**Journal or Conference:** ...
+Springer journals
 
 #### Review:
 
-Type a paragraph
+For evaluation they provide a comparison between their system and other visual trackers on public and their own datasets, which indicates their proposed system can solve human tracking problem with a promising performance.
+
+**Further works**: In order to improve the overall performance, the occlusion handling will be taken into account in their further works.
 
 #### Answers:
 
-1.
+1. Is not mentioned.
 
-2.
+2. CNN (to localize multiple human beings from frame to frame in video stream) and Hungarian Algorithm (data association problem in visual tracking) for the purpose of human detection and tracking are used. Faster R-CNN (deep CNN) which achieved the state of the art performance in object detection is adopted. Tracking-by-detection approaches is adopted.
 
 3.
 
-4.
+4. With a low error acceptance rate, our method outperforms the other trackers in terms of predicting human locations. This system can follow the objects of interest flexibly by adaptable bounding boxes based on changes in object appearance information during tracking, which is more practical and convenient for further processing.
 
 5.
 
@@ -198,10 +203,13 @@ Along with KITTI, many other datasets are available such as CityScapes, Pascal V
 
 **Authors:** 
 Sangil Lee, Chungkeun Lee, Haram Kim, and H. Jin Kim*
+
 **Date:** 
 January 19, 2021
+
 **Journal or Conference:**
 Springer journal
+
 #### Review:
 
 Its performance is comparable to that of MDE algorithms which train depth indirectly (or directly) from stereo image pairs (or depth image), and better than that of algorithms trained with monocular images only, in terms of the error and the accuracy. Also their computational load is much lighter than the learning-based methods.
@@ -211,8 +219,11 @@ Its performance is comparable to that of MDE algorithms which train depth indire
 1. Not mentioned
 
 2. It proposes the object depth estimation in real-time for autonomous driving, using only a monocular camera with a geometric approach, in an onboard computer with a low-cost GPU from a sparse feature-based visual odometry algorithm. (The camera’s own 6-DoF pose should be recognized in advance.)
+
 **Implementation details:** they implement simultaneous object detection(requires GPUintensive computation) and depth estimation(requires CPU-intensive computation) with dual-threading in an onboard environment with NVIDIA Jetson TX2 platform.
+
 **Implementation parts:** 1) feature extraction/tracking and object detection from a single image frame. 2)feature’s depth estimation and object tracking/merging. 3) object depth estimation and upkeep step.
+
 **Validation:** they validate the scene depth accuracy of sparse features with KITTI and its ground-truth depth map made from LiDAR observations quantitatively, and the depth of detected object with the Hyundai driving datasets and satellite maps qualitatively.
 The object classification groups: road boundary lines, traffic light, traffic signs, and vehicles
 
@@ -260,11 +271,14 @@ To process all detections of one image for implementation in Python, their track
 Other details are reported in the review part.
 
 3. Type: Visual based. All images and sensor data are from KITTI dataset.
+
 **Pseudo sensors:** Extended Kalman filter based monocular 3D multi-object tracker and detecter and depth estimation
+
 **Details:** For closer objects the projected center is more difficult to determine. So they increase the noise of them.
 They pre-trained the network on the NuScenes dataset and fine-tuned it on the training split of the KITTI dataset. They configured the network to output 3D detections besides the 2D ones in order to use this net also for track initialization. In comparison to other monocular 3D object detectors, the former has a very low FP and FN rate.
 
 4. The EKF(Extended Kalman filter) accurately estimates the real state uncertainties and can be therefore used as a starting point for multi-sensor fusion.
+
 **Performance:** They evaluated EKF with y_2D and y_3D in the measurement update. The former has a far better performance. In the latter case the uncertainty gets too small and is useless for fusion with detections from other sensors.
 
 5. They achieved state-ofthe-art results (on the KITTI dataset with an association solely based on 2D bounding box comparison), with very robust tracks in terms of the HOTA score. Their approach can use detections from an arbitrary monocular 3D object detector. Therefore it can even improve its performance with better detections.
@@ -348,6 +362,7 @@ Data Association: A simple approach is to update the track with the closet measu
 A YOLO-based detector is used to give out the bounding boxes and a vanishing point-based depth estimator is used to estimate the distance to compensate for the lost depth information caused by projecting from the 3D Cartesian coordinate to the 2D image plane. 
 To track the vehicle on the highway, a constant velocity model is used in this paper and the Extended Kalman filter is applied.
 Nearest neighbor with a gating trick is adopted to handle the data association problem. Besides these, a track management strategy is proposed to initialize, maintain, and delete tracks.
+
 **Track management strategies**:
 ![Untitled](https://user-images.githubusercontent.com/106483656/183743445-d9a4a6fc-7a22-4e68-96ed-bde006ee8a87.jpg)
 
