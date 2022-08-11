@@ -79,7 +79,7 @@ Springer journals
 
 #### Review:
 
-For evaluation they provide a comparison between their system and other visual trackers on public and their own datasets, which indicates their proposed system can solve human tracking problem with a promising performance.
+They propose a complete system for human detection and tracking based on CNN and HA, which is one of the tracking-by-detection approaches.
 
 **Further works**: In order to improve the overall performance, the occlusion handling will be taken into account in their further works.
 
@@ -87,14 +87,21 @@ For evaluation they provide a comparison between their system and other visual t
 
 1. Is not mentioned.
 
-2. CNN (to localize multiple human beings from frame to frame in video stream) and Hungarian Algorithm (data association problem in visual tracking) for the purpose of human detection and tracking are used. Faster R-CNN (deep CNN) which achieved the state of the art performance in object detection is adopted. Tracking-by-detection approaches is adopted.
+2. A deep CNN named Faster R-CNN which achieved the state of the art performance in object detection (to localize multiple human beings from frame to frame in video stream) and Hungarian Algorithm (data association problem in visual tracking) for the purpose of human detection and tracking are used. Tracking-by-detection approaches is adopted.
 
-3.
+3. Their method tracks human movements by detecting exactly the region of the human at every time step, the produced bounding boxes will be changed based on the detected region and the detected person will be assigned to a tracklet based on the data distribution in the video frame. (Other details are explained in other parts.)
 
 4. With a low error acceptance rate, our method outperforms the other trackers in terms of predicting human locations. This system can follow the objects of interest flexibly by adaptable bounding boxes based on changes in object appearance information during tracking, which is more practical and convenient for further processing.
 
-5.
+**Implementation and performance:** They implemented their system using MATLAB R2014a and Caffe for GPU acceleration. The testing database including public (consists of five datasets belonging to visual tracker benchmark) and their own datasets created using the DJI Phantom 3 Professional. Their own dataset includes two subsets created using different scenarios: a stationary camera with moving humans, and a moving camera with stationary humans. 
+The former scenario, the appearance information of the object of interest can be changed due to moving activities, which has an undesirable effect on most of detectors and trackers. While in the latter scenario, the noticeable changing in camera perception leads to motion blur and illumination changes of the background.
 
+**Performance evaluation method:** To evaluate their tracking system, they use precision plot, success plot, and Kristan’s method. (All of them are explained in the article.)
+
+**Evaluation and performance:** They provide a comparison between their system and other visual trackers on public and their own datasets, which indicates their proposed system can solve human tracking problem with a promising performance. They compare their system with top 4 trackers in the benchmark results: STRUCK, SCM, ASLA, and CSK. The best performance of their system is around 0.87, and it outperforms other trackers including CSK, and ASLA.
+They notice that when the location error threshold is less than or equal to 3.00, their system is the best one. Because their system includes a powerful human detector, it can estimate the human location with low error. also their method outperforms the others in terms of following human movements with low error rate. Similarly, their system is better than CSK, and ASLA with the best success rate is about 0.88.
+
+5. DJI Phantom 3 Professional. Mission details are explained in previous parts.  
 
 ## MDE for Object Detection and Tracking
 
@@ -364,6 +371,7 @@ To track the vehicle on the highway, a constant velocity model is used in this p
 Nearest neighbor with a gating trick is adopted to handle the data association problem. Besides these, a track management strategy is proposed to initialize, maintain, and delete tracks.
 
 **Track management strategies**:
+
 ![Untitled](https://user-images.githubusercontent.com/106483656/183743445-d9a4a6fc-7a22-4e68-96ed-bde006ee8a87.jpg)
 
 6. Kalman Filter + (constant velocity motion model is adopted)
@@ -380,8 +388,10 @@ Nearest neighbor with a gating trick is adopted to handle the data association p
 
 **Authors:** 
 Jongsub Yu and Hyukdoo Choi
+
 **Date:** 
 Published: 27 December 2021
+
 **Journal or Conference:** MDPI journals
 
 #### Review:
