@@ -136,19 +136,33 @@ Type the answers separately
 [Link to the Source Code](https://github.com/michael-fonder/M4Depth)
 
 **Authors:** 
+Michaël Fonder, Damien Ernst, and Marc Van Droogenbroeck
 
 **Date:** 
+last revised 1 Jul 2022
 
-**Journal or Conference:** ...
+**Journal or Conference:** 
 
 #### Review:
 
-Type a paragraph
+They present a new method named M4Depth for depth estimation from RGB image sequences acquired in unknown environments by a camera moving with six degrees of freedom. They also define a notion of visual disparity for generic camera motion, which is central for M4Depth method, and show how it can be used to estimate depth. 
 
 #### Answers:
+1. They establish a bijective relationship between depth and the visual disparity of two consecutive frames and show how to exploit it to perform motion-invariant pixel-wise depth estimation.
 
-Type the answers separately
+2. Sensor fusion is not used.
 
+3. It is based on a pyramidal convolutional neural network architecture where each level refines an input disparity map estimate by using two customized cost volumes. They use these new cost volumes to leverage the visual spatio-temporal constraints imposed by motion and to make the network robust for varied scenes.
+
+4.
+
+5. They benchmarked their approach both in test and generalization modes on public datasets (such as KITTI) featuring synthetic camera trajectories recorded in a wide variety of outdoor scenes. 
+
+**Performance:** Their network outperforms the state of the art on these datasets. M4Depth is superior to the baseline both in unstructured environments and in generalization while also performing well on the standard KITTI benchmark, which shows its superiority for autonomous vehicles. In addition to being motion- and featureinvariant, their method is lightweight, runs in real time, and can be trained in an end-to-end fashion.
+
+6. 
+
+7. **Future works:** Their further works on M4Depth will, among others, focus on the determination of its own uncertainty on depth estimates at inference time. Such an addition would provide a great advantage over other methods that do not offer this capability.
 
 ### Bayesian cue integration of structure from motion and CNN‑based monocular depth estimation for autonomous robot navigation
 
