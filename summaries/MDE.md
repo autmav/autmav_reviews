@@ -143,26 +143,32 @@ last revised 1 Jul 2022
 
 **Journal or Conference:** 
 
-#### Review:
-
-They present a new method named M4Depth for depth estimation from RGB image sequences acquired in unknown environments by a camera moving with six degrees of freedom. They also define a notion of visual disparity for generic camera motion, which is central for M4Depth method, and show how it can be used to estimate depth. 
-
 #### Answers:
-1. They establish a bijective relationship between depth and the visual disparity of two consecutive frames and show how to exploit it to perform motion-invariant pixel-wise depth estimation.
+1. Outline: 1) They extend the notion of visual disparity to camera baselines featuring six degrees of freedom (6 DoF) transformations, and present customized cost volumes for this disparity. 2) They present a novel real-time and lightweight multi-level architecture based on these cost volumes to perform end to end depth estimation on video streams acquired in unstructured environments. 3) It is shown that M4Depth, is state of the art on the Mid-Air dataset, that it has good performances on the KITTI dataset, that it outperforms existing methods in a generalization setup on the TartanAir dataset.
 
-2. Sensor fusion is not used.
+2. Sensor fusion is not used. Just visual. Pseudo sensor: MDE
 
-3. It is based on a pyramidal convolutional neural network architecture where each level refines an input disparity map estimate by using two customized cost volumes. They use these new cost volumes to leverage the visual spatio-temporal constraints imposed by motion and to make the network robust for varied scenes.
+3. Architecture overview of M4Depth (with three levels here):
 
-4.
+![Untitled](https://user-images.githubusercontent.com/106483656/184727447-435cab8f-1e5d-4f4c-9f9f-17404997a0c1.jpg)
 
-5. They benchmarked their approach both in test and generalization modes on public datasets (such as KITTI) featuring synthetic camera trajectories recorded in a wide variety of outdoor scenes. 
+It is fed by two consecutive frames and the camera motion. Each disparity refiner produces a disparity estimate and learnable disparity features. All convolutions are followed by a leaky ReLU activation unit, except for the ones producing a disparity estimate. To ease the convergence, disparities are encoded in the log-space.
+They use these new cost volumes(the Disparity Sweeping Cost Volume (DSCV) and the Spatial Neighborhood Cost Volume (SNCV) ) to leverage the visual spatio-temporal constraints imposed by motion and to make the network robust for varied scenes.
 
-**Performance:** Their network outperforms the state of the art on these datasets. M4Depth is superior to the baseline both in unstructured environments and in generalization while also performing well on the standard KITTI benchmark, which shows its superiority for autonomous vehicles. In addition to being motion- and featureinvariant, their method is lightweight, runs in real time, and can be trained in an end-to-end fashion.
+4. Performance metrics are taken from Eigen et al. for depth maps limited to 80 m.
+This network has 4.5 million parameters and requires up to 500 MB of GPU memory to run with six levels. At inference time on Mid-Air, an NVidia Tesla V100 GPU needs 17 ms to process a single frame for a raw TensorFlow implementation. This corresponds to 59 fps which is roughly twenty-times faster than DeepV2D, the best performing method on KITTI. Such inference speed is compatible with the real-time constraints required for robotic applications.
 
-6. 
+5.  In order to compare their method with its parent, PWC-Net, they perform the same experiments for both M4Depth and PWC-Net.
+They present three experiments: 
+A) They compare the performance of their method with the ones of the state of the art on a dataset featuring unstructured environments, using Mid-Air dataset.
+B) They assess the performance on a standard depth estimation using KITTI dataset.
+C) They evaluate the generalization capabilities of all the methods. They use static scenes that are semantically close to either the Mid-Air or the KITTI dataset, and test the performance of the method trained on Mid-Air (respectively KITTI) on the selected unstructured (respectively urban) scenes without any fine-tuning. For this experiment, they use TartanAir dataset.
+
+6. No, its not.
 
 7. **Future works:** Their further works on M4Depth will, among others, focus on the determination of its own uncertainty on depth estimates at inference time. Such an addition would provide a great advantage over other methods that do not offer this capability.
+
+8. **Performance:** Their network outperforms the state of the art on these datasets. M4Depth is superior to the baseline both in unstructured environments and in generalization while also performing well on the standard KITTI benchmark, which shows its superiority for autonomous vehicles. In addition to being motion- and featureinvariant, their method is lightweight, runs in real time, and can be trained in an end-to-end fashion.
 
 ### Bayesian cue integration of structure from motion and CNN‑based monocular depth estimation for autonomous robot navigation
 
