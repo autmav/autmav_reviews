@@ -71,10 +71,13 @@ Type the answers separately
 [Link to the Source Code]()
 
 **Authors:** 
+CHEN YANG, QI CHEN, YAOYAO YANG, JINGYU ZHANG, MINSHUN WU, AND KUIZHI MEI
 
 **Date:** 
+Received December 31, 2021, accepted January 12, 2022, date of publication January 19, 2022, date of current version January 28, 2022
 
 **Journal or Conference:** ...
+IEEE journal
 
 #### Review:
 
@@ -82,12 +85,22 @@ Type a paragraph
 
 #### Answers:
 
-Type the answers separately
+1. Outline: A) They design and implement a semantic and deep fusion convolutional neural network (SDFCNN), which can perform semantic segmentation and depth estimation simultaneously by inferring input color RGB images. It greatly reduces the number of parameters, computation and time required for inferring the two network models.
+B) They propose the feature point and feature description convolutional neural network (FPFDCNN) for feature point extraction from two different frames of images and generate vectors as descriptors for each feature point. FPFDCNN adopts the pixel shuffle algorithm to carry out superpixel restoration on low-resolution images. Using FPFDCNN can significantly reduce the environmental impact and finally generate high-resolution images.
+C) They also add a data correction module to optimize a point cloud map globally to establish a consistent point cloud map and to greatly reduce the inference time and network parameters.
+
+2. They construct a semantic and depth fusion SLAM (SDF-SLAM) framework, which fuses camera pose information and depth and semantic information of each frame.
+
+3. **SDF-SLAM architecture:**
+
+![Untitleddd](https://user-images.githubusercontent.com/106483656/184733920-e52d382b-fcd1-4d81-859b-035086f41fc3.jpg)
+
+4. **Results:** The average accuracy of the predicted point cloud coordinates reaches 90%, and the average accuracy of the semantic labels reaches 67%. Moreover, compared with the state-of-the-artSLAMframeworks, such as ORB-SLAM, LSD-SLAM, and CNN-SLAM, the absolute error of the camera trajectory on indoor data with more feature points is reduced from 0.436 m, 0.495 m, and 0.243 m to 0.037 m, respectively. On indoor data with fewer feature points, they decrease from 1.826 m, 1.206 m, and 0.264 m to 0.124 m, respectively.
+
+5. 
 
 
-
-
-
+6. No its not.
 
 ## MDE for VIO and Navigation
 
