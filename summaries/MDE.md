@@ -85,22 +85,34 @@ Type a paragraph
 
 #### Answers:
 
-1. Outline: A) They design and implement a semantic and deep fusion convolutional neural network (SDFCNN), which can perform semantic segmentation and depth estimation simultaneously by inferring input color RGB images. It greatly reduces the number of parameters, computation and time required for inferring the two network models.
+1. **Outline:** A) They design and implement a semantic and deep fusion convolutional neural network (SDFCNN), which can perform semantic segmentation and depth estimation simultaneously by inferring input color RGB images. It greatly reduces the number of parameters, computation and time required for inferring the two network models.
 B) They propose the feature point and feature description convolutional neural network (FPFDCNN) for feature point extraction from two different frames of images and generate vectors as descriptors for each feature point. FPFDCNN adopts the pixel shuffle algorithm to carry out superpixel restoration on low-resolution images. Using FPFDCNN can significantly reduce the environmental impact and finally generate high-resolution images.
 C) They also add a data correction module to optimize a point cloud map globally to establish a consistent point cloud map and to greatly reduce the inference time and network parameters.
 
 2. They construct a semantic and depth fusion SLAM (SDF-SLAM) framework, which fuses camera pose information and depth and semantic information of each frame.
 
-3. **SDF-SLAM architecture:**
+3. They propose a CNN named FPFDCNN for feature point extraction. The FPFDCNN model consists of five components, including input layer, encoder layers, decoder layers, output layers and concatenate layer. FPFDCNN network structure:
+
+![FPFDCNN network structure](https://user-images.githubusercontent.com/106483656/185100051-5b8fbe59-695f-4bab-b486-df10a08d4686.jpg)
+
+4. **Results:** The average accuracy of the predicted point cloud coordinates reaches 90%, and the average accuracy of the semantic labels reaches 67%. Moreover, compared with the state-of-the-artSLAMframeworks, such as ORB-SLAM, LSD-SLAM, and CNN-SLAM, the absolute error of the camera trajectory on indoor data with more feature points is reduced from 0.436 m, 0.495 m, and 0.243 m to 0.037 m, respectively. On indoor data with fewer feature points, they decrease from 1.826 m, 1.206 m, and 0.264 m to 0.124 m, respectively.
+The camera pose obtained by SDF-SLAM, which extracts feature points through a CNN, is more accurate than that obtained by ORB-SLAM.
+
+5. **SDF-SLAM experimental platform:**
+
+![SDF-SLAM experimental platform](https://user-images.githubusercontent.com/106483656/185103114-9c66d78c-97f2-419d-9169-f8753161e7ea.jpg)
+
+6. No its not.
+
+7. **Ideas:** Currently, the state-of-art methods use feature point matching to estimate camera pose based on the PnP method.
+
+8. **Datasets:** They select the rgbd_dataset_freiburg1_desk2 (f1_desk2) scene from the TUM dataset for feature point extraction named FP dataset.
+
+9. **SDF-SLAM architecture:**
 
 ![Untitleddd](https://user-images.githubusercontent.com/106483656/184733920-e52d382b-fcd1-4d81-859b-035086f41fc3.jpg)
 
-4. **Results:** The average accuracy of the predicted point cloud coordinates reaches 90%, and the average accuracy of the semantic labels reaches 67%. Moreover, compared with the state-of-the-artSLAMframeworks, such as ORB-SLAM, LSD-SLAM, and CNN-SLAM, the absolute error of the camera trajectory on indoor data with more feature points is reduced from 0.436 m, 0.495 m, and 0.243 m to 0.037 m, respectively. On indoor data with fewer feature points, they decrease from 1.826 m, 1.206 m, and 0.264 m to 0.124 m, respectively.
-
-5. 
-
-
-6. No its not.
+10. **3-Dimensional semantic map's steps:** (1) Design a deep semantic fusion CNN to complete the two tasks of image depth estimation and semantic segmentation. (2) Fuse the depth information and semantic information into 3D semantic point cloud data. (3) Map the point cloud data of each frame to the world coordinate system according to the camera pose to obtain a 3D semantic map.
 
 ## MDE for VIO and Navigation
 
