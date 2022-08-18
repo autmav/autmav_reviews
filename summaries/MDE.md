@@ -213,8 +213,17 @@ Type a paragraph
 
 #### Answers:
 
-Type the answers separately
+1. 
 
+2.
+
+3.
+
+4.
+
+5.
+
+6.
 
 ### SelfVIO: Self-supervised deep monocular Visual–Inertial Odometry and depth estimation
 
@@ -223,19 +232,42 @@ Type the answers separately
 [Link to the Source Code]()
 
 **Authors:** 
+Yasin Almalioglu, Mehmet Turan, Alp Eren Sari, Muhamad Risqi U. Saputra, Pedro P. B. de Gusmão, Andrew Markham, Niki Trigoni
 
 **Date:** 
+Last revised 23 Jul 2020 
 
 **Journal or Conference:** ...
-
+ ُSubmitted to The IEEE Transactions on Robotics (T-RO) journal, under review
+ 
 #### Review:
 
-Type a paragraph
+They introduce a novel self-supervised deep learning-based VIO and depth map recovery approach (SelfVIO) using adversarial training and self-adaptive visual-inertial sensor fusion.
+* No strict temporal or spatial calibration between camera and IMU is necessary for pose and depth estimation, contrary to traditional VO approaches.
+* To the best of their knowledge, this is the first selfsupervised deep joint monocular VIO and depth reconstruction method in the literature.
 
 #### Answers:
 
-Type the answers separately
+1. **Architecture overview:**
 
+![Untitled](https://user-images.githubusercontent.com/106483656/185489464-606c325d-2f64-4e0f-9d7c-59f99e1823d3.jpg)
+
+Unlabeled image sequences and raw IMU measurements are provided as inputs to the network. The method estimates relative translation and rotation between consecutive frames parametrized as 6-DoF motion and a depth image as a disparity map for a given view.
+
+2. They propose a novel unsupervised sensor fusion technique for the camera and the IMU, which extracts and fuses motion features from raw IMU measurements and RGB camera images using convolutional and recurrent modules based on an attention mechanism.
+
+3. **Pose estimation and depth map generation architecture:**
+ 
+![Untitledd](https://user-images.githubusercontent.com/106483656/185490839-e59df649-6106-4b6e-ba3f-74c555658a6d.jpg)
+
+4.
+
+5. They demonstrated superior performance of SelfVIO against state-of-the-art VO, VIO, and even VSLAM approaches on the KITTI, EuRoC and Cityscapes datasets.
+
+6. No it's not.
+
+7. **Future works:** 
+In future work, they plan to develop a stereo version of SelfVIO that could utilize the disparity map.
 
 ### Multi-Sensor Fusion Self-Supervised Deep Odometry and Depth Estimation
 
@@ -255,8 +287,18 @@ Type a paragraph
 
 #### Answers:
 
-Type the answers separately
 
+1. 
+
+2.
+
+3.
+
+4.
+
+5.
+
+6.
 
 ### On deep learning techniques to boost monocular depth estimation for autonomous navigation
 
@@ -286,10 +328,14 @@ Type the answers separately
 [Link to the Source Code]()
 
 **Authors:** 
+Xiaohui Yang; Yu Feng; Jian Li; Zhiqing Chen; zhenping Sun; Xiaopu Nie
 
 **Date:** 
+Date of Conference: 27-28 November 2020
+Date Added to IEEE Xplore: 07 December 2020
 
 **Journal or Conference:** ...
+Published in 2020 3rd International Conference on Unmanned Systems (ICUS) by IEEE
 
 #### Review:
 
@@ -297,5 +343,14 @@ Type a paragraph
 
 #### Answers:
 
-Type the answers separately
+1. 
 
+2.
+
+3.
+
+4.
+
+5.
+
+6.
