@@ -202,28 +202,44 @@ C) They evaluate the generalization capabilities of all the methods. They use st
 [Link to the Source Code]()
 
 **Authors:** 
+Fuseini Mumuni, Alhassan Mumuni
 
 **Date:** 
+Published online: 2 March 2022
 
 **Journal or Conference:** ...
+Springer Nature Singapore Pte Ltd. 2022
 
 #### Review:
 
-Type a paragraph
+They exploit structure from motion (SfM) through optical flow as an additional depth cue and prior knowledge about depth distribution in the environment to improve monocular depth prediction to enable robot navigation in an unstructured, hitherto unfamiliar environment.. They show how it is possible to promote MDE cue from ordinal scale to the same metric scale as SfM, thus, enabling their optimal integration in a Bayesian optimal manner.
 
 #### Answers:
 
-1. 
+1. **Overall workflow:**
 
-2.
+![Workflow](https://user-images.githubusercontent.com/106483656/185744336-02035a7a-6492-4937-8f8f-e5c3010e41fc.jpg)
 
-3.
+2. The captured frame is processed using the MDE and SfM models described, and together with the speed and pose information, depth fusion is performed.
+Sensor fusion algorythm: optimized scaling adaptive Kalman Filter (osAKF)
+Sensor/Pseudo sensors: IMU + Camera + Odometry + CNN‑based MDE + SfM 
 
-4.
+3. **Proposed Network Architecture:**
 
-5.
+![Untitled2](https://user-images.githubusercontent.com/106483656/185747128-da6aa709-c7ed-4e4f-9452-06cc74a48841.jpg)
 
-6.
+The neural network architecture proposed in this work is inspired by Alhashim and Wonka, whose CNN architecture consists of an encoder based on transfer learning, and a simple decoder. The feature extractor in the said work is a pretrained DenseNet-169 model using the ImageNet dataset. The encoder of their model is a custom network pre-trained on Kaggle’s Cats vs Dogs dataset. The network uses Max pooling and ReLU activations throughout.
+The network uses a weighted combination of four losses—mean absolute depth error (ADE), the scale-invariant (S-I) function proposed by Lee et al. , image gradient (IG) loss and structural similarity (SSIM) loss function for training. We used ADE, S-I and IG functions as defined in Alhashim and Wonka.
+The architecture greatly reduces model complexity and ensures efficiency.
+
+4. The data rates for pose and speed information are 200 Hz and 100 Hz, respectively.
+
+5. **Training:** Training of the network is performed in two stages, as illustrated in Algorithm 1. The weights for the part of the encoder based on pretrained Cats vs Dogs classifier are frozen during the first round of training (i.e., when weight update mode is “partial”). Meanwhile, the weights for the second part of encoder, as well as the decoder, are initialized using *He Normal* distributions. In the second round of training—when weight update mode is “all layers”—all network weights are updated.
+
+6. It is a custom-built mini vehicle system with a camera in the front face of the vehicle and four motors interfaced with OMRON E6B2-CWZ6C high-accuracy rotary encoders. 
+**Major components of the robot:** 1—Jetson TX2; 2—Arm Cortex M4 microcontroller system; 3—Camera; 4—LiDAR (only used for sampling prior depth values) 
+
+7. **Future works:** Future work could incorporate object recognition as well as size and rigidity estimation pipelines to distinguish objects that should be avoided, from small or deformable ones on the robot’s path that could be trampled on.
 
 ### SelfVIO: Self-supervised deep monocular Visual–Inertial Odometry and depth estimation
 
