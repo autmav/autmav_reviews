@@ -151,8 +151,17 @@ Type a paragraph
 
 #### Answers:
 
-Type the answers separately
+1. 
 
+2.
+
+3.
+
+4.
+
+5.
+
+6.
 
 ### M4Depth: Monocular depth estimation for autonomous vehicles in unseen environments
 
@@ -220,9 +229,9 @@ They exploit structure from motion (SfM) through optical flow as an additional d
 
 ![Workflow](https://user-images.githubusercontent.com/106483656/185744336-02035a7a-6492-4937-8f8f-e5c3010e41fc.jpg)
 
-2. The captured frame is processed using the MDE and SfM models described, and together with the speed and pose information, depth fusion is performed.
+2. The captured frame is processed using the MDE and SfM models described, and together with the speed and pose information, depth fusion is performed. Also sensory cues from MDE and SfM are fused to reduce the resulting variance (standard deviation).
 Sensor fusion algorythm: optimized scaling adaptive Kalman Filter (osAKF)
-Sensor/Pseudo sensors: IMU + Camera + Odometry + CNN‑based MDE + SfM 
+Sensor/Pseudo sensors: IMU + Camera + Lidar(for prior experiments) + Odometry + CNN‑based MDE + SfM 
 
 3. **Proposed Network Architecture:**
 
@@ -234,12 +243,21 @@ The architecture greatly reduces model complexity and ensures efficiency.
 
 4. The data rates for pose and speed information are 200 Hz and 100 Hz, respectively.
 
-5. **Training:** Training of the network is performed in two stages, as illustrated in Algorithm 1. The weights for the part of the encoder based on pretrained Cats vs Dogs classifier are frozen during the first round of training (i.e., when weight update mode is “partial”). Meanwhile, the weights for the second part of encoder, as well as the decoder, are initialized using *He Normal* distributions. In the second round of training—when weight update mode is “all layers”—all network weights are updated.
+5. 
+* Sensor models (likelihoods of MDE and SfM sensor model) and prior are determined.
+* They built a model representing this relationship by first running a series of experiments for various combinations of MDE predicted depth, versus actual scene depths corresponding to various camera tilt angles only for corresponding image regions. (from 0 to 45° and 0 to - 45° with increments of 5°. It is limited to 45° since larger angles produce too narrow spatial overlap). As the relative tilt between two frames increases, the overlapping region of their field of views decreases.
+* two conditions were of interest—the ability to perceive depth accurately with (a) normal camera pose and (b) camera subjected to angular tilts.
 
-6. It is a custom-built mini vehicle system with a camera in the front face of the vehicle and four motors interfaced with OMRON E6B2-CWZ6C high-accuracy rotary encoders. 
+**Training:** Training of the network is performed in two stages, as illustrated in Algorithm 1. The weights for the part of the encoder based on pretrained Cats vs Dogs classifier are frozen during the first round of training (i.e., when weight update mode is “partial”). Meanwhile, the weights for the second part of encoder, as well as the decoder, are initialized using *He Normal* distributions. In the second round of training—when weight update mode is “all layers”—all network weights are updated.
+
+6. No it's not. It is *Robust Autonomous Indoor Navigation robot (RAINav)*; a custom-built mini vehicle system with a camera in the front face of the vehicle and four motors interfaced with OMRON E6B2-CWZ6C high-accuracy rotary encoders. 
+
 **Major components of the robot:** 1—Jetson TX2; 2—Arm Cortex M4 microcontroller system; 3—Camera; 4—LiDAR (only used for sampling prior depth values) 
 
 7. **Future works:** Future work could incorporate object recognition as well as size and rigidity estimation pipelines to distinguish objects that should be avoided, from small or deformable ones on the robot’s path that could be trampled on.
+
+8. **Performance:** They have been able to improve depth estimation accuracy by more than 6% in a mobile robot navigation setting where the robot’s heading can under large angular inclinations.
+Experimental results show that besides providing metric scale for dense depth map, the integration of these cues significantly improves depth accuracy, reliability and robustness beyond what could be obtained from monocular vision or structure from motion alone.
 
 ### SelfVIO: Self-supervised deep monocular Visual–Inertial Odometry and depth estimation
 
