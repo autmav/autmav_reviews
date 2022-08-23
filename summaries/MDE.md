@@ -238,7 +238,7 @@ Sensor/Pseudo sensors: IMU + Camera + Lidar(for prior experiments) + Odometry + 
 ![Untitled2](https://user-images.githubusercontent.com/106483656/185747128-da6aa709-c7ed-4e4f-9452-06cc74a48841.jpg)
 
 The neural network architecture proposed in this work is inspired by Alhashim and Wonka, whose CNN architecture consists of an encoder based on transfer learning, and a simple decoder. The feature extractor in the said work is a pretrained DenseNet-169 model using the ImageNet dataset. The encoder of their model is a custom network pre-trained on Kaggle’s Cats vs Dogs dataset. The network uses Max pooling and ReLU activations throughout.
-The network uses a weighted combination of four losses—mean absolute depth error (ADE), the scale-invariant (S-I) function proposed by Lee et al. , image gradient (IG) loss and structural similarity (SSIM) loss function for training. We used ADE, S-I and IG functions as defined in Alhashim and Wonka.
+The network uses a weighted combination of four losses—mean absolute depth error (ADE), the scale-invariant (S-I) function proposed by Lee et al. , image gradient (IG) loss and structural similarity (SSIM) loss function for training. They used ADE, S-I and IG functions as defined in Alhashim and Wonka.
 The architecture greatly reduces model complexity and ensures efficiency.
 
 4. The data rates for pose and speed information are 200 Hz and 100 Hz, respectively.
@@ -368,23 +368,36 @@ Xiaohui Yang; Yu Feng; Jian Li; Zhiqing Chen; zhenping Sun; Xiaopu Nie
 Date of Conference: 27-28 November 2020
 Date Added to IEEE Xplore: 07 December 2020
 
-**Journal or Conference:** ...
+**Journal or Conference:** 
 Published in 2020 3rd International Conference on Unmanned Systems (ICUS) by IEEE
 
 #### Review:
 
-Type a paragraph
+A) When jointly estimating depth and pose by minimizing photometric loss, we introduce IMU, named as Pose Hints to provide suggestions for pose. As a result, they get better results when compared with their baseline network;
+B) They get the pseudo-IMU from consecutive poses and compare it with Pose Hints to measure the accuracy of pose optimization and then promote the optimization process based on this measurement.
 
 #### Answers:
 
-1. 
+1. They combine CodeSalm and BANet to set up their baseline method. It consists of a Depth Map Generator and a Nonlinear Optimization Module. In training phase, the Depth Map Generator is trained in supervised manner and in inference phase, the Nonlinear Optimization Module jointly reoptimize pose and depth.
 
-2.
+2.  Pose Hints provide pose suggestions during optimization phase, so to fuse the two heterogeneous data, they embed a nonlinear optimization module in CNNs.
+Sensors/pseudo sensors: IMU
 
-3.
+3. **Overview of network structure:**
+In inference phase, the Depth Map Generator first generates a set of basis depth maps B and the initial depth D_init, then the Nonlinear Optimization Module takes B, D_init and consecutive frames as inputs to reoptimize depth as well as estimate pose by minimizing photometric loss.
+
+![Untitled](https://user-images.githubusercontent.com/106483656/186256100-ebd2317c-a72f-4a27-a6d0-f08a90ecd4aa.jpg)
+
+**Inference with pose hints:**
+
+![Untitledd](https://user-images.githubusercontent.com/106483656/186257955-6ad1c0a2-fb80-4474-8681-d1a454154a6d.jpg)
+
 
 4.
 
-5.
+5. They train the network on KITTI Depth Prediction Dataset and evaluate the performance of their proposed method and their baseline method on KITTI Visual Odometry Dataset and KITTI Depth Prediction Dataset.
 
-6.
+6. No it’s not.
+
+7. **Results:**
+1) When directly integrating IMU' to obtain pose, there is a large cumulative error 2) Their method outperforms monocular Libviso2 algorithm 3) When compared with their baseline method, their Pose Hints method can predict smoother and more accurate poses.
