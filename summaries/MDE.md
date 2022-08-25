@@ -61,8 +61,17 @@ Type a paragraph
 
 #### Answers:
 
-Type the answers separately
+1. 
 
+2.
+
+3.
+
+4.
+
+5.
+
+6.
 
 ### SDF-SLAM: A Deep Learning Based Highly Accurate SLAM Using Monocular Camera Aiming at Indoor Map Reconstruction With Semantic and Depth Fusion
 
@@ -140,28 +149,48 @@ In your review, answer to the following questions:
 [Link to the Source Code]()
 
 **Authors:** 
+Sen Zhang , Jing Zhang , and Dacheng Tao
 
 **Date:** 
+21 Jul 2022
 
-**Journal or Conference:** ...
+**Journal or Conference:**
+arXiv
 
 #### Review:
 
-Type a paragraph
+They propose DynaDepth, a scale-aware, robust, and generalizable MDE framework using IMU motion dynamics.
 
 #### Answers:
 
-1. 
+1. They first propose an IMU photometric loss and a cross-sensor photometric consistency loss to provide dense supervision and absolute scales. To fully exploit the complementary information from both sensors, they further drive a differentiable camera-centric *extended Kalman filter (EKF)* to update the IMU preintegrated motions when observing visual measurements.
 
-2.
+**Overall Framework:** 
 
-3.
+![Untitledddd](https://user-images.githubusercontent.com/106483656/186728218-d7299a7b-b7f7-4478-a101-be2211c5347d.jpg)
 
-4.
+2. **Sensors:** IMU photometric loss + cross-sensor photometric consistency loss +
 
-5.
+**Sensor fusion:** They derive a camera-centric EKF framework for the sensor fusion, which also provides an egomotion uncertainty measure under the setting of unsupervised learning. 
 
-6.
+3. It is not mentioned.
+
+4. FPS informations is not mentioned. The training process takes 1 ~ 2 days on a single NVIDIA V100 GPU.
+
+5. 
+* They compare DynaDepth with state-of-the-art MDE methods which rescale the results using the ratio of the median depth between the ground-truth and the prediction. DynaDepth achieves the best up-to-scale performance w.r.t. four metrics and achieves the second best for the other three metrics. Of note is that DynaDepth also achieves a nearly perfect absolute scale.
+* Then they compare the unscaled results with PackNet- SfM and G2S, which use the GPS information. DynaDepth achieves the best performance w.r.t. all metrics.
+* They test the generalizability of DynaDepth on Make3D using models trained on KITTI. They found that DynaDepth that only uses the gyroscope and accelerator IMU information achieves the best generalization results.
+
+**Implementation:** DynaDepth is implemented in pytorch. They adopt the monodepth2 network structures. (ps:The source codes and the trained models will be released)
+
+**Results:** By leveraging IMU during training, DynaDepth not only learns an absolute scale, but also provides a better generalization ability and robustness against vision degradation such as illumination change and moving objects.
+
+**Ablation Studies:** It's on KITTI to investigate the effects of the proposed IMU-related losses, the EKF fusion framework, and the learnt ego-motion uncertainty. Also they design simulated experiment to demonstrate the robustness of DynaDepth against vision degradation such as illumination change and moving objects. WLOG, we use ResNet18 as the encoder for all ablation studies.
+
+6. No it's not.
+
+7. **DynaDepth benefits:** (1) the learning of the absolute scale, (2) the generalization ability, (3) the robustness against vision degradation such as illumination change and moving objects, and (4) the learning of an ego-motion uncertainty measure, which are also supported by our extensive experiments and simulations on the KITTI and Make3D datasets.
 
 ### M4Depth: Monocular depth estimation for autonomous vehicles in unseen environments
 
@@ -321,7 +350,6 @@ Type a paragraph
 
 #### Answers:
 
-
 1. 
 
 2.
@@ -352,8 +380,17 @@ Type a paragraph
 
 #### Answers:
 
-Type the answers separately
+1. 
 
+2.
+
+3.
+
+4.
+
+5.
+
+6.
 
 ### Joint Estimation of Depth and Pose with IMU-assisted Photometric Loss
 
