@@ -50,28 +50,42 @@ In your review, answer to the following questions:
 [Link to the Source Code]()
 
 **Authors:** 
+Lokender Tiwari, Pan Ji, Quoc-Huy Tran, Bingbing Zhuang, Saket Anand, and Manmohan Chandraker
 
 **Date:** 
+Submitted on 22 Apr 2020 (v1), last revised 7 Aug 2020 (v3)
 
-**Journal or Conference:** ...
+**Journal or Conference:**
+arXiv
 
 #### Review:
 
-Type a paragraph
+They propose a self-improving framework to couple geometrical and learning based methods for 3D perception. A win-win situation is achieved; both the monocular SLAM and depth prediction are improved by a significant margin without any additional active depth sensor or ground truth label.
 
 #### Answers:
 
-1. 
+1. They introduce two wide baseline losses, i.e., the symmetric depth transfer loss and the depth consistency loss on common tracked points, and propose a joint narrow and wide baseline based depth prediction learning setup, where appearance based losses are computed on narrow baselines and purely geometric losses on wide baselines (non-consecutive temporally distant keyframes).
 
-2.
+2. Pseudo RGB-D + SLAM
+Their fusion of geometric SLAM and CNN-based monocular depth estimation turns out to be symbiotic and this complementary nature sets the basis of their self-improving framework.
 
-3.
+3. **Overview of Self-Improving Framework:**
+![Untitled](https://user-images.githubusercontent.com/106483656/187045870-25263a3c-ef04-40e4-bbf2-7b4419ee7700.jpg)
 
-4.
+4. FPS information is not mentioned.
+A single self-improving loop takes 0:6 hour on a *NVIDIA TITAN Xp 8GB GPU*.
 
-5.
+5. **Implementation:** They implement their framework based on Monodepth2 and ORB-SLAM, i.e., they use the depth network of Monodepth2 and the RGB-D version of ORB- SLAM for depth refinement and pose refinement respectively.
 
-6.
+**Metrics for Pose Evaluation:** Root Mean Square Error (RMSE), Relative Translation (Rel Tr ) error, and Relative Rotation (Rel Rot) error of the predicted camera trajectory. 
+
+**Metrics for Depth Evaluation.:** They use the standard metrics, including the Absolute Relative (Abs Rel ) error, Squared Relative (Sq Rel ) error, RMSE, RMSE log, Delta<1.25 (namely a1 ), Delta<1.25^2 (namely Delta^2 ), and Delta<1.25^3 (namely Delta^3 )
+
+**Results:** Through extensive experiments on *KITTI and TUM RGB-D* datasets, their framework is shown to outperform both monocular SLAM system (i.e., ORB-SLAM) and the state-of-the-art unsupervised single-view depth prediction network (i.e., Monodepth2).
+
+6. No it's not.
+
+7. **Future works:** Currently, their self-improving framework only works in an off-line mode, so developing an on-line real-time self-improving system remains one of their future works. Another avenue for their future works is to move towards more challenging settings, e.g., rolling shutter cameras or uncalibrated cameras.
 
 ### SDF-SLAM: A Deep Learning Based Highly Accurate SLAM Using Monocular Camera Aiming at Indoor Map Reconstruction With Semantic and Depth Fusion
 
@@ -85,12 +99,8 @@ CHEN YANG, QI CHEN, YAOYAO YANG, JINGYU ZHANG, MINSHUN WU, AND KUIZHI MEI
 **Date:** 
 Received December 31, 2021, accepted January 12, 2022, date of publication January 19, 2022, date of current version January 28, 2022
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 IEEE journal
-
-#### Review:
-
-Type a paragraph
 
 #### Answers:
 
