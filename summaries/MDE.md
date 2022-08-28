@@ -60,7 +60,8 @@ arXiv
 
 #### Review:
 
-They propose a self-improving framework to couple geometrical and learning based methods for 3D perception. A win-win situation is achieved; both the monocular SLAM and depth prediction are improved by a significant margin without any additional active depth sensor or ground truth label.
+They propose a joint narrow and wide baseline based self-improving framework to couple geometrical and learning based methods for 3D perception, where on the one hand the CNN-predicted depth is leveraged to perform pseudo RGB-D feature-based SLAM, leading to better accuracy and robustness than the monocular RGB SLAM baseline.
+Their framework only requires unlabeled monocular videos in both training and inference stages, and yet is able to outperform state-of-the-art self-supervised monocular and stereo depth prediction networks (e.g., Monodepth2) and feature-based monocular SLAM system (i.e., ORB-SLAM).
 
 #### Answers:
 
@@ -69,13 +70,19 @@ They propose a self-improving framework to couple geometrical and learning based
 2. Pseudo RGB-D + SLAM
 Their fusion of geometric SLAM and CNN-based monocular depth estimation turns out to be symbiotic and this complementary nature sets the basis of their self-improving framework.
 
-3. **Overview of Self-Improving Framework:**
+3. Network type: CNN
+**Overview of Self-Improving Framework:**
+
 ![Untitled](https://user-images.githubusercontent.com/106483656/187045870-25263a3c-ef04-40e4-bbf2-7b4419ee7700.jpg)
 
 4. FPS information is not mentioned.
 A single self-improving loop takes 0:6 hour on a *NVIDIA TITAN Xp 8GB GPU*.
 
 5. **Implementation:** They implement their framework based on Monodepth2 and ORB-SLAM, i.e., they use the depth network of Monodepth2 and the RGB-D version of ORB- SLAM for depth refinement and pose refinement respectively.
+
+**KITTI Eigen Split/Odometry Experiments:** They pre-train MonoDepth2 using monocular videos of the KITTI Eigen split training set with the hyperparameters as suggested in MonoDepth2.
+
+**TUM RGB-D Experiments:** For TUM RGB-D, They pre-train/fine-tune the depth network on 2 freiburg3 sequences, and test on 2 freiburg3 sequences.
 
 **Metrics for Pose Evaluation:** Root Mean Square Error (RMSE), Relative Translation (Rel Tr ) error, and Relative Rotation (Rel Rot) error of the predicted camera trajectory. 
 
@@ -339,8 +346,7 @@ Unlabeled image sequences and raw IMU measurements are provided as inputs to the
 
 6. No it's not.
 
-7. **Future works:** 
-In future work, they plan to develop a stereo version of SelfVIO that could utilize the disparity map.
+7. **Future works:** In future work, they plan to develop a stereo version of SelfVIO that could utilize the disparity map.
 
 ### Multi-Sensor Fusion Self-Supervised Deep Odometry and Depth Estimation
 
@@ -349,26 +355,30 @@ In future work, they plan to develop a stereo version of SelfVIO that could util
 [Link to the Source Code]()
 
 **Authors:** 
+YingcaiWan, Qiankun Zhao, Cheng Guo, Chenlong Xu and Lijing Fang
 
 **Date:** 
+Received: 16 December 2021 / Revised: 10 February 2022 / Accepted: 14 February 2022 / Published: 2 March 2022
 
 **Journal or Conference:** ...
+MDPI journal
 
 #### Review:
 
-Type a paragraph
+They present a new deep visual-inertial odometry and depth estimation framework for improving the accuracy of depth estimation and ego-motion from image sequences and inertial measurement unit (IMU) raw data. The proposed framework predicts ego-motion and depth with absolute scale in a self-supervised manner that combines DepthNet with DeepVIO to supervise each other.
 
 #### Answers:
 
-1. 
+1. Based on the SuperPoint dense feature point extraction method, they added the sparse depth pose with absolute scale to the depth estimation geometric constraints; The DeepVIO pipeline joint keypoint is based on DVO with DIO and uses the EKF module to update the relative pose.
 
-2.
+2. Sensors/pseudo sensors: New deep visual-inertial odometry and depth estimation: + deep visual odometry (DVO) + deep inertial odometry (DIO) + deep visual-inertial odometry (DeepVIO)
+**Data fusion:** By extended Kalman filter (EKF)
 
-3.
+3. An end-to-end self-supervised learning architecture
 
 4.
 
-5.
+5. They tested their framework on the KITTI dataset, showing that their approach produces more accurate absolute depth maps than contemporaneous methods. Their model also demonstrates stronger generalization capabilities and robustness across datasets.
 
 6.
 
