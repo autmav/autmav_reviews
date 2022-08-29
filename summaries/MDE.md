@@ -417,28 +417,40 @@ the depth estimation.
 [Link to the Source Code]()
 
 **Authors:** 
+Raul de Queiroz Mendes, Eduardo Godinho Ribeiro, Nicolas dos Santos Rosa, Valdir Grassi Jr.
 
 **Date:** 
+Received 13 October 2020, Accepted 23 November 2020, Available online 21 December 2020
 
 **Journal or Conference:** ...
+ELSEVIER journal: Robotics and Autonomous Systems
 
 #### Review:
 
-Type a paragraph
+They propose a new lightweight and fast supervised CNN architecture combined with novel feature extraction models which are designed for real-world autonomous navigation. They also introduce an efficient surface normals module, jointly with a simple geometric 2.5D loss function, to solve SIDE problems. They also innovate by incorporating multiple Deep Learning techniques, such as the use of densification algorithms and additional semantic, surface normals and depth information to train their framework.
 
 #### Answers:
 
 1. 
 
-2.
+2. Sensor or data fusion in not proposed.
+Sensors/pseudo sensors: Single Image Depth Estimation
 
-3.
+3. They designed a simple CNN architecture, along with four feature extraction models, that can be applied for both SIDE(Single Image Depth Estimation) and correlated tasks at a high frame rate; whose number of trainable parameters can vary from 2 M up to 12 M.
+* A practical 2.5D loss function that is employed in the depth and surface normals experiments
 
-4.
+4. Their framework can also be used in real-world applications since it achieves prediction speeds from 32 fps up to 88 fps.
 
 5.
+**Outdoor:** For the tests involving outdoor scenarios, the *DenseSIDENet* configuration that includes the proposed surface normals module, the 2.5D geometric loss function, the pyramid block and the pretraining with the cityscapes dataset provided results in the state-of-the-art for the SIDE (Abs Rel = 0.075), depth completion (Abs Rel = 0.019) and VO (seq00 RMSE = 16.9438) tasks, regarding the *KITTI Benchmark datasets* .
 
-6.
+**Indoor:** The same DSN setup aforementioned, with the exception of the pre-training step that is conducted with the aid of indoor datasets, produced promising results for the single-view depth prediction (RMSE = 0.429), depth completion (RMSE = 0.102) and surface normals estimation (RMSE = 12.2) tasks on the *NYU Benchmark datasets* .
+
+6. No, there is not.
+
+7. **Ablation studies:** Ablation studies considering variations in loss functions, network structures, fine-tuning techniques and additional training information
+
+8. **Future works:** As future work, they intend to employ the developed CNNs for other tasks such as robotic grasping and visual servoing control.
 
 ### Joint Estimation of Depth and Pose with IMU-assisted Photometric Loss
 
