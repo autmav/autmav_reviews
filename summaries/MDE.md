@@ -203,11 +203,11 @@ They propose DynaDepth, a scale-aware, robust, and generalizable MDE framework u
 
 **Results:** By leveraging IMU during training, DynaDepth not only learns an absolute scale, but also provides a better generalization ability and robustness against vision degradation such as illumination change and moving objects.
 
-**Ablation Studies:** It's on KITTI to investigate the effects of the proposed IMU-related losses, the EKF fusion framework, and the learnt ego-motion uncertainty. Also they design simulated experiment to demonstrate the robustness of DynaDepth against vision degradation such as illumination change and moving objects. WLOG, we use ResNet18 as the encoder for all ablation studies.
+**Ablation Studies:** It's on KITTI to investigate the effects of the proposed IMU-related losses, the EKF fusion framework, and the learnt ego-motion uncertainty. Also they design simulated experiment to demonstrate the robustness of DynaDepth against vision degradation such as illumination change and moving objects. WLOG, they use ResNet18 as the encoder for all ablation studies.
 
 6. No it's not.
 
-7. **DynaDepth benefits:** (1) the learning of the absolute scale, (2) the generalization ability, (3) the robustness against vision degradation such as illumination change and moving objects, and (4) the learning of an ego-motion uncertainty measure, which are also supported by our extensive experiments and simulations on the KITTI and Make3D datasets.
+7. **DynaDepth benefits:** (1) the learning of the absolute scale, (2) the generalization ability, (3) the robustness against vision degradation such as illumination change and moving objects, and (4) the learning of an ego-motion uncertainty measure, which are also supported by their extensive experiments and simulations on the KITTI and Make3D datasets.
 
 ### M4Depth: Monocular depth estimation for autonomous vehicles in unseen environments
 
@@ -371,16 +371,44 @@ They present a new deep visual-inertial odometry and depth estimation framework 
 
 1. Based on the SuperPoint dense feature point extraction method, they added the sparse depth pose with absolute scale to the depth estimation geometric constraints; The DeepVIO pipeline joint keypoint is based on DVO with DIO and uses the EKF module to update the relative pose.
 
-2. Sensors/pseudo sensors: New deep visual-inertial odometry and depth estimation: + deep visual odometry (DVO) + deep inertial odometry (DIO) + deep visual-inertial odometry (DeepVIO)
-**Data fusion:** By extended Kalman filter (EKF)
+**Overview of the system:**
 
-3. An end-to-end self-supervised learning architecture
+![123](https://user-images.githubusercontent.com/106483656/187086790-d4190b26-f23a-4f36-8c0b-0824065674fb.jpg)
 
-4.
+2. **Sensors/pseudo sensors:** New deep visual-inertial odometry and depth estimation: + deep visual odometry (DVO) + deep inertial odometry (DIO) + deep visual-inertial odometry (DeepVIO)
 
-5. They tested their framework on the KITTI dataset, showing that their approach produces more accurate absolute depth maps than contemporaneous methods. Their model also demonstrates stronger generalization capabilities and robustness across datasets.
+**Data fusion:** The fusion module combines the DVO and DIO pose with the EKF method. (They fuse DVO with IMU data.) Their EKF model is robot-centric-based, and the EKF propagates its state based on the kinematics theory, maintaining the system’s differentiability.
 
-6.
+**Pose fusion module based on EKF:**
+
+![456](https://user-images.githubusercontent.com/106483656/187089242-12560a7e-a09d-4711-95c2-6889e528207a.jpg)
+
+3.
+* **Self-Supervised Depth Estimation:** The depth module is an encoder–decoder network, DepthNet. The encoder of DepthNet uses ResNet to extract the features of the input images with four scale layers, while the skip connections fuse the encoder layer features with the decoder upsample convolution network. The pose module (PoseNet) uses ResNet to extract image features, and then the decoder adopts convolution layer regression.
+
+* **Deep Visual Odometry Based on Keypoint:** They chose SuperPoint as their DVO network backbone instead of traditional feature extractors, e.g., ORB, SIFT. The encoder is based on VGG network architecture and consists of convolutional layers, spatial downsampling via pooling, non-linear activation functions, and rectified linear unit (ReLU). After the encoder, the architecture splits into two decoder “heads”, which learn task specific weights for interest point detection and interest point description. The feature points of two adjacent frames are obtained from KeypointNet, they associate the feature points of the two frames through MatchNet.
+
+* **DIO-Net Measurement Model:** They propose a DIO-Net deep inertial odometry network to replace the inertial odometry data process, preintegration, and pose prediction.
+
+* **Supervised with Sparse Depth from DeepVIO:** In order to resolve the scale ambiguity problem and enhance the geometric constraints, they fuse the self-supervised depth estimation process with the output of DeepVIO based on the 3D geometry structure.
+
+4. FPS details are not mentioned.
+
+5. **Datasets:** Original KITTI dataset + KITTI Odometry dataset + Oxford RobotCar dataset
+* They compare the supervised depth estimation DORN, unsupervised depth estimation Monodepth2 with end-to-end PoseNet and unsupervised depth estimation TrainFlow , with PoseNet, based on optical flow, respectively. The results show that their proposed DeepVIO method can improve the accuracy of depth estimation and enhance the detail of depth estimation at the edge of objects.
+* The experiments show that their presented model outperforms all other state-of-the-art depth estimation methods on the KITTI dataset, and shows excellent generalization ability on the Oxford RobotCar dataset.
+* They follow the previous works on KITTI Odometry criteria evaluating possible subsequences of length (100, 200, . . . , 800) meters and report the average translational errors and rotational errors for Pose Estimation.
+* **Error metrics for depth estimation:** absolute relative error (Abs Rel), square relative error (Sq Rel), root mean square error (RMSE), and the root mean square error in log space (RMSE log) PS: these are already used in previous works
+* **Accuracy metrics:** The percentages of pixels where the ratio (delta) between the estimated depth and ground truth depth is smaller than 1.25, 1.25^2, and 1.25^3
+
+6. No, there is not.
+
+7. **Future works:** Future work includes the depth completion method for guiding depth estimation with the sparse depth from DeepVIO to bring further improvements. Finally, exploring the benefits of the improved depth prediction for 3D reconstruction is another interesting research direction.
+
+8. **Ablation Study:**
+* It was carried out by comparing the depth value error between the predicted depth and ground truth. In the weak texture region, or far away areas, the predicted depth from their framework obtained the absolute scale with DeepVIO, improving generalization ability.
+* In the RobotCar dataset experiment, they compare it with TrainFlow and Monodepth2. Their method can adapt to different environments, since they added DeepVIO in
+the depth estimation.
 
 ### On deep learning techniques to boost monocular depth estimation for autonomous navigation
 
@@ -430,7 +458,7 @@ Published in 2020 3rd International Conference on Unmanned Systems (ICUS) by IEE
 
 #### Review:
 
-A) When jointly estimating depth and pose by minimizing photometric loss, we introduce IMU, named as Pose Hints to provide suggestions for pose. As a result, they get better results when compared with their baseline network;
+A) When jointly estimating depth and pose by minimizing photometric loss, they introduce IMU, named as Pose Hints to provide suggestions for pose. As a result, they get better results when compared with their baseline network;
 B) They get the pseudo-IMU from consecutive poses and compare it with Pose Hints to measure the accuracy of pose optimization and then promote the optimization process based on this measurement.
 
 #### Answers:
