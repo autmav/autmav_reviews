@@ -7,7 +7,7 @@ Object tracking refers to the ability to estimate or predict the position of a t
 
 
 
-## None-MDE-Aided Tracking (Control aspect)
+## Human-Following Guidance
 
 Here, summarize the investigations in the new useful softwares which are included in an object detection and tracking project; Whether based on a motion model or visual data, or both.
 
@@ -26,7 +26,7 @@ After presenting the aforementioned data about each paper, answer to the followi
 5. Explain about the mission and the hardware
 
 
-### Autonomous Human-Following Drone for Monitoring a Pedestrian from Constant Distance and Direction
+### 1:Autonomous Human-Following Drone for Monitoring a Pedestrian from Constant Distance and Direction
 
 [Link to the Paper](https://drive.google.com/file/d/1p6NsPXuzjZfd4ESUXRtnRvGcS1R0wn1F/view?usp=sharing)
 
@@ -61,10 +61,11 @@ Experimental results confirmed that our system ran with reasonable response time
 
 5. An autonomous drone system that follows a pedestrian from a certain distance and direction for human video analysis without environmental constraints. +Tello drone +RGB camera
 
+## Visual Human Tracking
 
-### Multiple human tracking in drone image
+### 2:Multiple human tracking in drone image
 
-[Link to the Paper](https://link.springer.com/article/10.1007/s11042-018-6141-z)
+[Link to the Paper](https://sci-hub.hkvisa.net/10.1007/s11042-018-6141-z)
 
 [Link to the Source Code]()
 
@@ -74,7 +75,7 @@ Hai Duong Nguyen, In Seop Na, Soo Hyung Kim, Guee Sang Lee, Hyung Jeong Yang, Ju
 **Date:** 
 Received: 26 July 2017 /Revised: 18 October 2017 /Accepted: 13 May 2018
 
-**Journal or Conference:** ...
+**Journal or Conference:**
 Springer journals
 
 #### Review:
@@ -88,8 +89,9 @@ They propose a complete system for human detection and tracking based on CNN and
 1. Is not mentioned.
 
 2. A deep CNN named Faster R-CNN which achieved the state of the art performance in object detection (to localize multiple human beings from frame to frame in video stream) and Hungarian Algorithm (data association problem in visual tracking) for the purpose of human detection and tracking are used. Tracking-by-detection approaches is adopted.
+Their method tracks human movements by detecting exactly the region of the human at every time step, the produced bounding boxes will be changed based on the detected region and the detected person will be assigned to a tracklet based on the data distribution in the video frame. (Other details are explained in other parts.)
 
-3. Their method tracks human movements by detecting exactly the region of the human at every time step, the produced bounding boxes will be changed based on the detected region and the detected person will be assigned to a tracklet based on the data distribution in the video frame. (Other details are explained in other parts.)
+3. They did't use guidance and control strategies.
 
 4. With a low error acceptance rate, our method outperforms the other trackers in terms of predicting human locations. This system can follow the objects of interest flexibly by adaptable bounding boxes based on changes in object appearance information during tracking, which is more practical and convenient for further processing.
 
@@ -124,7 +126,7 @@ Try to answer the folloeing questions in your review:
 
 Add the papers you find in the following:
 
-### Depth Estimation Matters Most: Improving Per-Object Depth Estimation for Monocular 3D Detection and Tracking
+### 3:Depth Estimation Matters Most: Improving Per-Object Depth Estimation for Monocular 3D Detection and Tracking
 
 [Link to the Paper](https://arxiv.org/pdf/2206.03666.pdf)
 
@@ -142,7 +144,7 @@ IEEE
 1)They conducted a systematic analysis identifying that per-object depth estimation is a major performance bottleneck of current 3D monocular detection and tracking-by-detection methods.
 2)They proposed a novel method that fuses pseudo-LiDAR and RGB information across the temporal domain to significantly enhance per-object depth estimation performance.
 3)They demonstrated that with the enhanced depth, the performance of monocular 3D detection and tracking can be significantly improved. 4) Future works can include end-to-end training of the proposed method.
-Detectors such as RTM3D with the AB3D tracker, are state-of-the-art.
+PS: Detectors such as RTM3D with the AB3D tracker, are state-of-the-art.
 
 #### Answers:
 
@@ -157,7 +159,7 @@ Detectors such as RTM3D with the AB3D tracker, are state-of-the-art.
 5. The extraction process of the pseudo-LiDAR representation consists of three steps: (1) dense depth estimation for each image, (2) lifting predicted dense depth into pseudo-LiDAR, and (3) pseudo-LiDAR representation extraction with a neural network. For any RGB image, the depth estimation can be accomplished by using a dense depth estimation network.
 Hardware details are not mentioned.
 
-### Deep Learning for Real-Time 3D Multi-Object Detection, Localization, and Tracking: Application to Smart Mobility
+### 4:Deep Learning for Real-Time 3D Multi-Object Detection, Localization, and Tracking: Application to Smart Mobility
 
 [Link to the Paper](https://www.mdpi.com/1424-8220/20/2/532)
 
@@ -201,7 +203,7 @@ Unlike traditional tracking approaches which require target initialization befor
 9. **Dataset:** due to the lack of a publicly available dataset for railway environments (barring RailSem19 dataset),they propose to extend the current version of their system by including a *new stereoscopic sensor* so that they can collect their own dataset under outdoor conditions with large and adjustable baselines.
 Along with KITTI, many other datasets are available such as CityScapes, Pascal VO, MS-COCO, ImageNet and OpenImages devoted to the road domain
 
-### Realtime Object-aware Monocular Depth Estimation in Onboard Systems
+### 5:Realtime Object-aware Monocular Depth Estimation in Onboard Systems
 
 
 [Link to the Paper]()
@@ -227,9 +229,9 @@ Its performance is comparable to that of MDE algorithms which train depth indire
 
 2. It proposes the object depth estimation in real-time for autonomous driving, using only a monocular camera with a geometric approach, in an onboard computer with a low-cost GPU from a sparse feature-based visual odometry algorithm. (The camera’s own 6-DoF pose should be recognized in advance.)
 
-**Implementation details:** they implement simultaneous object detection(requires GPUintensive computation) and depth estimation(requires CPU-intensive computation) with dual-threading in an onboard environment with NVIDIA Jetson TX2 platform.
+**Implementation details:** they implement simultaneous object detection(requires GPU-intensive computation) and depth estimation(requires CPU-intensive computation) with dual-threading in an onboard environment with NVIDIA Jetson TX2 platform.
 
-**Implementation parts:** 1) feature extraction/tracking and object detection from a single image frame. 2)feature’s depth estimation and object tracking/merging. 3) object depth estimation and upkeep step.
+**Implementation parts:** 1) feature extraction/tracking and object detection from a single image frame. 2) feature’s depth estimation and object tracking/merging. 3) object depth estimation and upkeep step.
 
 **Validation:** they validate the scene depth accuracy of sparse features with KITTI and its ground-truth depth map made from LiDAR observations quantitatively, and the depth of detected object with the Hyundai driving datasets and satellite maps qualitatively.
 The object classification groups: road boundary lines, traffic light, traffic signs, and vehicles
@@ -238,7 +240,7 @@ The object classification groups: road boundary lines, traffic light, traffic si
 
 4. Data fusion is not mentioned
 
-5. In the object recognition stage, objects are detected and tracked and their depths are calculated from feature points within their ROI. As the feature-based scene reconstruction algorithm shares KLT tracking results with the object recognition method, it is not necessary to perform tracking twice in the object tracking procedure, thus reducing execution time.
+5. In the object recognition stage, objects are detected and tracked and their depths are calculated from feature points within their ROI(region-of-interest). As the feature-based scene reconstruction algorithm shares KLT tracking results with the object recognition method, it is not necessary to perform tracking twice in the object tracking procedure, thus reducing execution time. In the object tracking step, we track objects with the rectangular ROIs from the previous frame and the feature tracking result.
 
 6. Not mentioned
 
@@ -247,7 +249,7 @@ The object classification groups: road boundary lines, traffic light, traffic si
 8. **Dataset:** KITTI, Waymo open dataset and nuScenes do not provide labels for static objects. So they utilize the Hyundai MnSoft driving dataset including many annotations in dicating static objects such as traffic signs and road signs.
 
 
-### Monocular 3D Multi-Object Tracking with an EKF Approach for Long-Term Stable Tracks
+### 6:Monocular 3D Multi-Object Tracking with an EKF Approach for Long-Term Stable Tracks
 
 [Link to the Paper](https://drive.google.com/file/d/1rJ3PnFiJbZcrKbh4VGLAxsz_62sTOKMX/view?usp=sharing)
 
@@ -295,7 +297,7 @@ To improve tracking performance they tested an Unscented Kalman filter (UKF), wh
 
 7. **Challenges:** Challenging scenarios for their tracker are bad aspect angle estimates at and shortly after track initialization. This especially happens for distant objects at crossings and it can be handled by including detections from other sensors.
 
-### Real-time Monocular 3D People Localization and Tracking on Embedded System
+### 7:Real-time Monocular 3D People Localization and Tracking on Embedded System
 
 [Link to the Paper](https://drive.google.com/file/d/1HKHRA1zM6AxbsaZgxfexzKUygNpzXZTo/view?usp=sharing)
 
@@ -331,7 +333,7 @@ July 3-5, 2021
 
 7. **Neural network:** MonoDepth2 , self-supervised monocular depth estimation method, has a satisfying performance with acceptable model complexity. It consists of a general U-net encoder-decoder structure.
 
-### Design of a Robust System Architecture for Tracking Vehicle on Highway Based on Monocular Camera
+### 8:Design of a Robust System Architecture for Tracking Vehicle on Highway Based on Monocular Camera
 
 [Link to the Paper]()
 
@@ -370,7 +372,7 @@ A YOLO-based detector is used to give out the bounding boxes and a vanishing poi
 To track the vehicle on the highway, a constant velocity model is used in this paper and the Extended Kalman filter is applied.
 Nearest neighbor with a gating trick is adopted to handle the data association problem. Besides these, a track management strategy is proposed to initialize, maintain, and delete tracks.
 
-**Track management strategies**:
+**9:Track management strategies**:
 
 ![Untitled](https://user-images.githubusercontent.com/106483656/183743445-d9a4a6fc-7a22-4e68-96ed-bde006ee8a87.jpg)
 
