@@ -190,13 +190,97 @@ Model-based classic control (4-C-169) / Lambert et al. [169] used model-based RL
 
 *year:* 2021
 
-**Review**: Model-based classic control (4-C-122) / has shown that RL can find optimal controllers
+**Review**: Model-based classic control (4-C-122) / has shown that RL can find optimal controllers. where a neural network policy is trained with RL to fly through a race track in simulation in near-minimum time.
 
 **Abstract**: ...
 
 
 
 ## IV - D: Deep GNC, Integrated (Learned) GC
+
+-----
+
+*db-num:* 
+
+*title:* Champion-level drone racing using deep reinforcement learning
+
+*year:* 2023
+
+**Review**: (4-D-[5]) Producing the control command directly from state inputs without requiring a high-level trajectory planner, enabled an autonomous drone with only onboard perception, for the first time, to outperform a professional human, and is state-of-the-art at the time of writing. 
+
+**Abstract**: ...
+
+[pseudo-code](https://zenodo.org/records/7955278)
+
+-----
+
+*db-num:*
+
+*title:* Reaching the Limit in Autonomous Racing: Optimal Control versus Reinforcement Learning
+
+*year:* 2023
+
+**Review**: (4-D-[4]) / A neural network policy is trained with RL to fly through a race track in simulation in near-minimum time.
+
+**Abstract**: ...
+
+-----
+
+*db-num:* 
+
+*title:*  Learning minimum-time flight in cluttered environments
+
+*year:* 2022
+
+**Review**: In [123], deep RL is combined with classical topological path planning to train robust neural network controllers for minimum-time quadrotor flight in cluttered environments. The learned policy solves the planning and control problem simultaneously, forgoing the need for explicit trajectory planning and control.
+
+**Abstract**: ...
+
+-----
+
+*db-num:* 
+
+**Review**: (4-D-[176,177,178,179,180]) / Another class of algorithms try to exploit the benefits of model-based and learning-based approaches using differentiable optimizers approaches [176], [177], [178], which leverage differentiability through controllers. For example, for tuning linear controllers by getting the analytic gradients [179], or for creating a differentiable prediction, planning,
+and controller pipeline for autonomous vehicles [180].
+
+*title-1:* Differentiable MPC for End-to-end Planning and Control
+*year-1:* 2018
+
+[code-1](https://github.com/locuslab/mpc.pytorch)
+[code-1](https://github.com/locuslab/differentiable-mpc)
+
+*title-2:* Theseus: A Library for Differentiable Nonlinear Optimization
+*year-2:* 2022
+
+[code-2](https://github.com/facebookresearch/theseus)
+
+*title-3:* PyPose: A Library for Robot Learning with Physics-based Optimization
+*year-3:*  2023
+
+*title-4:* DiffTune+: Hyperparameter-Free Auto-Tuning using Auto-Differentiation
+*year-4:* 2023
+
+[code-4](https://github.com/Sheng-Cheng/DiffTuneOpenSource)
+
+*title-5:* DiffStack: A Differentiable and Modular Control Stack for Autonomous Vehicles
+*year-5:*  2023
+
+[code-5](https://github.com/NVlabs/diffstack)
+
+-----
+
+*db-num:* 
+
+*title:* Actor-Critic Model Predictive Control
+
+*year:* 2024
+
+**Review**: Romero et al. [181] equip the RL agent with a differentiable MPC [176], located at the last layer of the actor network that provides the system with online replanning capabilities and allows the policy to predict and optimize the short-term consequences of its actions while retaining the benefits of RL training.
+
+**Abstract**: ...
+
+
+-----
 
 ## IV - E: Deep GNC, Integrated (Learned) NGC
 
