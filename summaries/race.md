@@ -284,3 +284,9 @@ and controller pipeline for autonomous vehicles [180].
 
 ## IV - E: Deep GNC, Integrated (Learned) NGC
 
+*title-1:* OIL: Observational Imitation Learning
+*title-2:* Learning a Controller Fusion Network by Online Trajectory Filtering for Vision-based UAV Racing
+
+**Review**: (4-E-[182,183]) train a perception-planning network and a control network using imitation learning. The perception network takes raw images as input and predicts waypoints to the next gate. The control network uses such predictions with ground-truth velocity and attitude information to predict control commands for tracking the waypoints. They showed improvements over pure end-to-end approaches, which directly map pixels to control commands and were able to show competitive lap times on par with intermediate human pilots within the Sim4CV simulator [184].
+
+[code-1](https://drive.google.com/file/d/10UoFPVcb7lENDQUokLCZEM4g8MAlqTmO/view)
