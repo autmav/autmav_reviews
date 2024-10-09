@@ -5,6 +5,229 @@ Organized review of the paper `Autonomous Drone Racing: A Survey, IEEE TRANSACTI
 
 ## III - B: Classic GNC, Guidance (Planning)
 
+*db-num:* 0013
+
+*title:* Fast-Racing: An Open-source Strong Baseline for SE(3) Planning in Autonomous Drone Racing
+
+**Review:** (3-B-1-87) / Trajectory planning after finding a geometrical path between a given start and goal position and avoiding obstacle then uses a found geometric path to either create a collision-free flight corridor. 
+
+**Abstract:** This paper proposes an open-source baseline, which includes a high-performance SE(3) planner and a challenging simulation platform tailored for drone racing. We specify the SE(3) trajectory generation as a soft-penalty optimization problem, and speed up the solving process utilizing its underlying parallel structure.
+
+[code](https://github.com/ZJU-FAST-Lab/Fast-Racing)
+
+-----
+
+*db-num:* 0014
+
+*title:* Minimum-time trajectory generation for quadrotors in constrained environments
+
+**Review:** (3-B-1-88) / Trajectory planning after finding a geometrical path between a given start and goal position and avoiding obstacle then uses a found geometric path to either create a collision-free flight corridor.
+
+**Abstract:** In this paper, a novel strategy to compute minimum-time trajectories for quadrotors in constrained environments. In particular, we consider the motion in a given flying region with obstacles and take into account the physical limitations of the vehicle.
+
+-----
+
+*db-num:* 0015
+
+*title:* Minimum-Time Quadrotor Waypoint Flight in Cluttered Environments
+**Review:** (3-B-1-37) / Find new waypoints for the trajectory to avoid collisions.
+
+**Abstract:** In the Article they tackle the problem of planning a minimum-time trajectory for a quadrotor over a sequence of specified waypoints in the presence of obstacles while exploiting the full quadrotor dynamics.
+
+[code](https://github.com/uzh-rpg/sb_min_time_quadrotor_planning)
+
+-----
+
+*db-num:* 0016
+
+*title:* Polynomial Trajectory Planning for Aggressive Quadrotor Flight in Dense Indoor Environments
+**Review:** (3-B-1-89) / Find new waypoints for the trajectory to avoid collisions.
+
+**Abstract:** They explore the challenges of planning trajectories for quadrotors through cluttered indoor environments. They extend the existing work on polynomial trajectory generation by presenting a method of jointly optimizing polynomial path segments in an unconstrained quadratic program that is numerically stable for high order polynomials and large numbers of segments, and is easily formulated for efficient sparse computation.
+
+[code](https://github.com/ethz-asl/mav_trajectory_generation)
+
+-----
+
+*db-num:* 0017
+
+*title:* Robust Real-time UAV Replanning Using Guided Gradient-based Optimization and Topological Paths
+**Review:** (3-B-1-90) / Constrain the trajectory to stay close to the found path.
+
+**Abstract-1:** Gradient-based trajectory optimization suffers from local minima, which is not only fatal to safety but also unfavorable for smooth navigation. In this paper, They propose a replanning method based on GTO addressing this issue systematically. A path-guided optimization (PGO) approach is devised to tackle infeasible local minima, which improves the replanning success rate significantly.
+
+*db-num:* 0018
+
+*title:* RAPTOR: Robust and perception aware trajectory replanning for quadrotor fast flight
+**Review:** (3-B-1-91) / Constrain the trajectory to stay close to the found path.
+
+**Abstract-2:** Recent advances in trajectory replanning have enabled quadrotor to navigate autonomously in unknown environments. However,high-speed navigation still remains a significant challenge. Given very limited time, existing methods have no strong guarantee on the feasibility or quality of the solutions. Moreover, most methods do not consider environment perception, which is the key bottleneck to fast flight. In this paper, They present RAPTOR, a robust and perception-aware replanning framework to support fast and safe flight, which addresses these issues systematical
+
+[code-1](https://github.com/HKUST-Aerial-Robotics/TopoTraj)
+[code-1,2](https://github.com/HKUST-Aerial-Robotics/Fast-Planner)
+
+-----
+
+*db-num:* 0019
+
+*title:* Vision-Based Reactive Planning for Aggressive Target Tracking while Avoiding Collisions and Occlusions
+**Review:** (3-B-1-94) / Some works rely solely on trajectory planning as they assume no collision with the environment when a trajectory is found.
+
+**Abstract:** In this paper they investigate the online generation of optimal trajectories for target tracking with a quadrotor while satisfying a set of image-based and actuation constraints. We consider a quadrotor equipped with a camera (either down or front-looking) with limited field of view.
+
+-----
+
+*db-num:* 0020
+
+*title:* Time-optimal planning for quadrotor waypoint flight
+**Review:** (3-B-1-95) / Some works rely solely on trajectory planning as they assume no collision with the environment when a trajectory is found.
+
+**Abstract:** The paper proposes a method to generate time-optimal trajetories for quadrotors by solving the time-allocation problem while maximizing the use of the quadrotore's actuators. This approach outperforms existing methods and even human pilos in drone-racing tasks.
+
+[code](https://github.com/uzh-rpg/rpg_time_optimal)
+
+-----
+
+*db-num:* 0021
+
+*title:* Fast Trajectory Optimization for Agile Quadrotor Maneuvers with a Cable-Suspended Payload
+**Review:** (3-B-1-96) / Some works rely solely on trajectory planning as they assume no collision with the environment when a trajectory is found.
+
+**Abstract:** They present a novel dynamical model and a fast trajectory optimization algorithm for quadrotors with a cable-suspended payload. Theire first contribution is a new formulation of the suspended payload behavior, modeled as a link attached to the quadrotor with a combination of two revolute joints and a prismatic joint, all being passive.
+
+-----
+
+*db-num:* 0022
+
+*title:* Performance benchmarking of quadrotor systems using time-optimal control
+**Review:** (3-B-1-97) / Some works rely solely on trajectory planning as they assume no collision with the environment when a trajectory is found.
+
+**Abstract:** This paper presents an algorithm that allows the computation of quadrotor maneuvers that satisfy Pontryagin’s minimum principle with respect to time-optimality.Such maneuvers provide a useful lower bound on the duration of maneuvers, which can be used to assess performance of controllers and vehicle design parameters.
+
+-----
+
+*db-num:* 0023
+
+*title:* 4D Trajectory Prediction with Model Predictive Control based on Flight Plan
+**Review:** (3-B-1-98) / Some works rely solely on trajectory planning as they assume no collision with the environment when a trajectory is found.
+
+**Abstract:** The paper aims to improve air traffic management by predicting the four-dimensional trajectory (4DT) of aircraft, which includes their three-dimensional position over time. This prediction is crucial for ensuring safe and efficient operations, especially in urban air mobility (UAM) environments. The study proposes a method using flight plans and Model Predictive Control (MPC) to generate 4DTs, considering constraints like speed and altitude. The generated 4DTs were validated against actual flight data, showing potential to enhance air traffic efficiency and safety. 
+
+-----
+
+*db-num:* 0024
+
+*title:* Search-based motion planning for quadrotors using linear quadratic minimum time control
+**Review:** (3-B-1-99) / Works directly find a collision-free trajectory.
+
+**Abstract:** In this work, they propose a search-based planning method to compute dynamically feasible trajectories for a quadrotor flying in an obstacle-cluttered environment. Theire approach searches for smooth, minimum-time trajectories by exploring the map using a set of short-duration motion primitives.
+
+[code](https://github.com/sikang/mpl_ros)
+
+-----
+
+*db-num:* 0025
+
+*title:* Search-based motion planning for aggressive flight in SE(3)
+**Review:** (3-B-1-100) / Works directly find a collision-free trajectory.
+
+**Abstract:** The article aims to develop a trajectory planning method for quadrotors with high thrust-to-weight ratios, enabling them to navigate cluttered environments with sharp turns and high accelerations. Using an ellipsoid model to check for collisions, the approach finds safe, optimal paths through narrow gaps by adjusting pitch and roll. It accelerates planning with a lower-dimensional search and demonstrates effectiveness in simulations and real-world tests.
+
+[code](https://github.com/StanfordASL/KinoFMT.git)
+
+-----
+
+*db-num:* 0026
+
+*title:* A real-time framework for kinodynamic planning with application to quadrotor obstacle avoidance
+**Review:** (3-B-1-101) / Works directly find a collision-free trajectory.
+
+**Abstract:** The objective of this paper is to present a full-stack, real-time kinodynamic planning framework and demonstrate it on a quadrotor for collision avoidance. Specifically, the proposed framework utilizes an offline online computation paradigm, neighborhood classification through machine learning, sampling-based motion planning with an optimal control distance metric, and trajectory smoothing to achieve real-time planning for aerial vehicles.
+
+[code](https://github.com/StanfordASL/KinoFMT.git)
+
+-----
+
+*db-num:* 0027
+
+*title:* Vector field guided RRT* based on motion primitives for quadrotor kinodynamic planning
+**Review:** (3-B-1-102) / Works directly find a collision-free trajectory.
+
+**Abstract:**  In this paper, they present a sampling-based kinodynamic planning algorithm for
+quadrotors, which plans a dynamically feasible trajectory in a complicated environment. We have designed a method to constrain the sampling state by using the vector field to construct a cone in the sampling stage of RRT*, so that the generated trajectory is connected as smoothly as possible to other states in the reachable set.
+
+[pesaudocode] (4.1 in paper)
+
+-----
+
+*db-num:* 0028
+
+*title:* Model predictive contouring control for time-optimal quadrotor flight
+**Review:** (3-B-1-103) / Some control approaches do not need a specified time-allocated trajectory and rely only on the geometrical path for controlling the drone.
+
+**Abstract:** This article presents a real-time solution for flying time-optimal trajectories with quadrotors using Model Predictive Contouring Control (MPCC). It efficiently combines trajectory planning and control, outperforming traditional methods and even a world-class human pilot in real-world tests.
+
+-----
+
+*db-num:* 0029
+
+*title:* Time-optimal online replanning for agile quadrotor flight
+**Review:** (3-B-1-104) / Some control approaches do not need a specified time-allocated trajectory and rely only on the geometrical path for controlling the drone.
+
+**Abstract:** The article presents a method for real-time, time-optimal control of quadrotors that can adapt to changes in the environment or disturbances. Using a sampling-based approach combined with Model Predictive Contouring Control (MPCC), the system allows the quadrotor to replan its path on-the-fly, demonstrated in high-speed flights and strong winds.
+
+-----
+
+*db-num:* 0030
+
+*title:* Minimum snap trajectory generation and control for quadrotors
+**Review:** (3-B-1-111) / 
+
+**Abstract:** The article focuses on designing a controller and generating optimal trajectories for a quadrotor navigating tight indoor environments. It introduces an algorithm that enables real-time generation of safe, optimal trajectories while accounting for constraints like velocities and accelerations. A nonlinear controller is used for accurate trajectory tracking, with experimental results demonstrating its effectiveness in fast 3D movements through slalom courses.
+
+[code](https://github.com/ardyadipta/quadrotor_autonomy/tree/master/papers)
+
+-----
+
+*db-num:* 0031
+
+*title:* A computationally efficient motion primitive for quadrocopter trajectory generation
+**Review:** (3-B-1-113) / The polynomial and spline methods leverage the differential flatness property of quadrotors and represent a trajectory as a continuous-time polynomial or spline
+
+**Abstract:** The article presents a fast method to generate and verify motion primitives for quadcopters, optimizing movements for tasks like catching a ball. It enables quick evaluations of thousands of motion options per second using computationally efficient algorithms.
+
+-----
+
+*db-num:* 0032
+
+*title:* “Time-optimal gate traversing planner for autonomous drone racing
+**Review:** (3-B-1-114) / Recently they in this paper they proposed a polynomial trajectory representation based on [115] and use it to plan time-optimal trajectories through gates of arbitrary shapes for drone racing, achieving close-to-time-optimal results while being more computationally efficient than [95].
+
+**Abstract:** The purpose of this article is to introduce a time-optimal trajectory planner for drone racing that accounts for the configuration of race gates, unlike previous studies that treat gates as simple waypoints. The planner generates faster, more efficient trajectories by fully utilizing gate shapes and sizes, while considering the drone's thrust limits. It is computationally efficient and has been validated in simulations and real-world experiments, reducing lap times and enabling extreme flight trajectories.
+[code](https://github.com/FSC-Lab/TOGT-Planner)
+
+-----
+
+*db-num:* 0033
+
+*title:* Geometrically Constrained Trajectory Optimization for Multicopters
+**Review:** (3-B-1-115) / A polynomial trajectory representation
+
+**Abstract:** The purpose of this article is to introduce an optimization-based framework for multicopter trajectory planning that handles geometrical and dynamic constraints efficiently. The framework uses a novel trajectory representation to minimize control effort, and employs smooth maps to handle constraints in a lightweight manner. By transforming constrained problems into unconstrained optimization tasks, it ensures high-quality solutions while maintaining computational speed. The approach is demonstrated through various flight tasks, simulations, and benchmarks, showcasing its generality, robustness, and efficiency compared to other methods.
+
+[code](https://github.com/ZJU-FAST-Lab/GCOPTER)
+
+-----
+
+*db-num:* 0034
+
+*title:* Euclidean and non-Euclidean trajectory optimization approaches for quadrotor racing
+**Review:** (3-B-1-116) / Direct collocation methods that rely on polynomials to approximate the input and state dynamics can achieve nearly optimal performance.
+
+**Abstract:** The purpose of this article is to introduce two optimization approaches for quadrotor raceline planning that utilize either Euclidean or non-Euclidean geometry to describe vehicle position. Both methods leverage high-fidelity quadrotor dynamics and eliminate the need for approximating gates with waypoints. The article demonstrates significantly faster computation times 100 times faster than comparable methods while also enhancing solver convergence. Additionally, it extends the non-Euclidean approach to calculate racelines in environments with multiple static obstacles.
+
+[code](https://zenodo.org/record/5036287)
+
 ## III - C: Classic GNC, Control, Model-based control
 
 *title:* Geometric tracking control of a quadrotor UAV for extreme maneuverability
@@ -284,9 +507,39 @@ and controller pipeline for autonomous vehicles [180].
 
 ## IV - E: Deep GNC, Integrated (Learned) NGC
 
+*db-num:* 0035
+
 *title-1:* OIL: Observational Imitation Learning
 *title-2:* Learning a Controller Fusion Network by Online Trajectory Filtering for Vision-based UAV Racing
 
 **Review**: (4-E-[182,183]) train a perception-planning network and a control network using imitation learning. The perception network takes raw images as input and predicts waypoints to the next gate. The control network uses such predictions with ground-truth velocity and attitude information to predict control commands for tracking the waypoints. They showed improvements over pure end-to-end approaches, which directly map pixels to control commands and were able to show competitive lap times on par with intermediate human pilots within the Sim4CV simulator [184].
 
 [code-1](https://drive.google.com/file/d/10UoFPVcb7lENDQUokLCZEM4g8MAlqTmO/view)
+
+-----
+
+*db-num:* 0035
+
+*title:* Teaching UAVs to race: End-to-end regression of agile controls in simulation
+
+**Review**: (4-E-[185]) The second family of approaches directly maps sensor observation to commands without any modularity. This design is used in [185], which to date remains the only example of the completely end-to-end racing system.
+
+-----
+
+*db-num:* 0036
+
+*title:* DeepPilot: A CNN for Autonomous Drone Racing
+
+**Review**: (4-E-[186]) other end-to-end systems generally require an inner loop controller and inertial information to be executed. For instance, Rojas-Perez and Martinez-Carranza [186] train an end-to-end CNN to directly predict roll, pitch, yaw, and altitude from camera images.
+
+[code](https://github.com/QuetzalCpp/DeepPilot)
+
+-----
+*db-num:* 0037
+
+*title-1:* Learning deep sensorimotor policies for vision-based autonomous drone racing
+*title-2:* Contrastive learning for enhancing robust scene transfer in vision-based agile flight
+
+**Review**: authors in [187] and [188] use a neural network to predict commands directly from vision. To improve sample complexity, they use contrastive learning to extract robust feature representations from images and leverage a two-stage learning-by-cheating framework.
+
+
